@@ -1,7 +1,5 @@
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Application {
     private static void lengthOfLastWord(String s) {
@@ -17,12 +15,30 @@ public class Application {
         System.out.println(numbers);
     }
 
-    public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
-        for (Integer i : numbers) {
-            System.out.println(i + 1);
+    public static int singleNonDuplicate(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int n : nums) {
+            map.put(n, map.getOrDefault(n, 0) + 1);
         }
-//        ReverseLinkedList.reverseList();
+        int res = -1;
+        for (Map.Entry<Integer, Integer> kv : map.entrySet()) {
+            if (kv.getValue() == 1) {
+                res = kv.getKey();
+                break;
+            }
+        }
+        return res;
+    }
+
+
+    public static void main(String[] args) {
+        int[] nums = {1, 1, 1, 2, 2, 3};
+//        System.out.println(singleNonDuplicate(numbers));
+
+        Map<Integer, Integer> freqMap = new HashMap<>();
+        for (int num : nums) {
+            freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
+        }
     }
 
 }

@@ -1,4 +1,4 @@
-package com.dsa.array;
+package dsa.array;
 
 public class GasStation {
 
