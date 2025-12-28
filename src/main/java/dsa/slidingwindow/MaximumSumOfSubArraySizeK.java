@@ -9,24 +9,26 @@ public class MaximumSumOfSubArraySizeK {
         if (n < k) {
             return 0;
         }
-        int maxSum = 0;
-        for (int i = 0; i < n - k; i++) {
-            int windowSum = 0;
-            boolean isValid = true;
-            Set<Integer> visited = new HashSet<>();
-            for (int j = i; j < i + k; j++) {
-                if (visited.contains(nums[j])) {
-                    isValid = false;
-                    break;
-                }
-                windowSum += nums[j];
-                visited.add(nums[j]);
+        int left = 0;
+        long sum = 0, ans = 0;
+        Set<Integer> visited = new HashSet<>(n);
+        for (int right = 0; right < n; right++) {
+            while (visited.contains(nums[right])) {
+                visited.remove(nums[left]);
+                sum -= nums[left];
+                left++;
             }
-            if (isValid) {
-                maxSum = Math.max(windowSum, maxSum);
+            sum += nums[right];
+            visited.add(nums[right]);
+
+            if (right - left - 1 == k) {
+                visited.remove(nums[left]);
+                ans = Math.max(sum, ans);
+                sum -= nums[left];
+                left++;
             }
         }
-        return maxSum;
+        return ans;
     }
 
     public static void main(String[] args) {
