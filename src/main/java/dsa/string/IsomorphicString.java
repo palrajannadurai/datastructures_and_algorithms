@@ -10,16 +10,18 @@ public class IsomorphicString {
         Map<Character, Character> map = new HashMap<>();
         Set<Character> used = new HashSet<>();
         for (int i = 0; i < s.length(); i++) {
-            if (map.containsKey(s.charAt(i))) {
-                if (map.get(s.charAt(i)) != t.charAt(i)) {
+            char tc = t.charAt(i);
+            char sc = s.charAt(i);
+            if (map.containsKey(sc)) {
+                if (map.get(sc) != tc) {
                     return false;
                 }
             } else {
-                if (used.contains(t.charAt(i))) {
+                if (used.contains(tc)) {
                     return false;
                 }
-                map.put(s.charAt(i), t.charAt(i));
-                used.add(t.charAt(i));
+                map.put(sc, tc);
+                used.add(tc);
             }
         }
         return true;
