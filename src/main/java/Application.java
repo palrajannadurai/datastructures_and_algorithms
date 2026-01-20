@@ -35,10 +35,12 @@ public class Application {
         int[] nums = {1, 1, 1, 2, 2, 3};
 //        System.out.println(singleNonDuplicate(numbers));
 
-        Map<Integer, Integer> freqMap = new HashMap<>();
-        for (int num : nums) {
-            freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
-        }
+//        Map<Integer, Integer> freqMap = new HashMap<>();
+//        for (int num : nums) {
+//            freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
+//        }
+        boolean[] dp  = new boolean[10];
+        System.out.println(Arrays.toString(dp));
     }
 
 }
