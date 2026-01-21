@@ -32,15 +32,8 @@ public class Application {
 
 
     public static void main(String[] args) {
-        int[] nums = {1, 1, 1, 2, 2, 3};
-//        System.out.println(singleNonDuplicate(numbers));
-
-//        Map<Integer, Integer> freqMap = new HashMap<>();
-//        for (int num : nums) {
-//            freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
-//        }
-        boolean[] dp  = new boolean[10];
-        System.out.println(Arrays.toString(dp));
+        int n = 15;
+        System.out.println((n & 1) == 1 ? "ODD" : "EVEN");
     }
 
 }

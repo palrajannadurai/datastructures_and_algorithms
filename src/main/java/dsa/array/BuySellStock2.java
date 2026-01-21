@@ -1,5 +1,7 @@
 package dsa.array;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -14,8 +16,6 @@ public class BuySellStock2 {
         }
         return profit;
     }
-
-
 
     public static void main(String[] args) {
         int[] prices = {7, 1, 5, 3, 6, 4};
