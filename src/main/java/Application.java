@@ -32,8 +32,8 @@ public class Application {
 
 
     public static void main(String[] args) {
-        int n = 15;
-        System.out.println((n & 1) == 1 ? "ODD" : "EVEN");
+        int n = 25;
+        System.out.println(n % 10);
     }
 
 }
