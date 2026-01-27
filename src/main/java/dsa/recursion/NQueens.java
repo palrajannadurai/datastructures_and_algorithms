@@ -1,7 +1,6 @@
 package dsa.recursion;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class NQueens {
     private final List<List<String>> result = new ArrayList<>();
@@ -9,22 +8,41 @@ public class NQueens {
     private final Set<Integer> mainDiagonal = new HashSet<>();
     private final Set<Integer> antiDiagonal = new HashSet<>();
 
-    public List<List<String>> solveNQueens(int n) {
+    private char[][] createBoard(int n) {
         char[][] board = new char[n][n];
-        Arrays.stream(board).forEach(x -> Arrays.fill(x, '.'));
+        for (char[] item: board) {
+            Arrays.fill(item, '.');
+        }
+        return board;
+    }
+
+    private boolean isSafe(int row, int col) {
+        return !columns.contains(col)
+                && !mainDiagonal.contains(row - col)
+                && !antiDiagonal.contains(row + col);
+    }
+
+    public List<List<String>> solveNQueens(int n) {
+        char[][] board = createBoard(n);
         backtrack(0, n, board);
         return result;
     }
 
+    private void construct(char[][] board) {
+        List<String> temp = new ArrayList<>();
+        for (char[] r: board) {
+            temp.add(new String(r));
+        }
+        result.add(temp);
+    }
+
     private void backtrack(int row, int n, char[][] board) {
         if (row == n) {
-            result.add(Arrays.stream(board)
-                    .map(String::new)
-                    .collect(Collectors.toList()));
+            construct(board);
             return;
         }
         for (int col = 0; col < n; col++) {
-            if (columns.contains(col) || mainDiagonal.contains(row - col) || antiDiagonal.contains(row + col)) {
+            if (!isSafe(row, col)) {
                 continue;
             }
             // move forward
