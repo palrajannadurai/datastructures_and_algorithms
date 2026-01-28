@@ -1,21 +1,30 @@
 package dsa.linkedlist;
 
-import java.util.Stack;
-
 public class ReverseLinkedList {
-    public static ListNode reverseList(ListNode head) {
-        Stack<Integer> nodes = new Stack<>();
-        while (head != null) {
-            nodes.push(head.val);
-            head = head.next;
+    /*
+    *
+    * * Input: Head = A -> B -> C -> D -> E    Left = 2 Right = 4
+    * *
+    * * OutPut: A-> D -> C -> B -> E
+    * **/
+    public static ListNode reverseBetween(ListNode head, int left, int right) {
+       if(head == null || left == right) {
+           return head;
+       }
+       ListNode dummy = new ListNode(0, head);
+       ListNode prev = dummy;
+        for (int i = 1; i < left; i++) {
+            prev = prev.next;
         }
-        ListNode dummyHead = new ListNode(0);
-        ListNode tail = dummyHead;
-        while (!nodes.isEmpty()) {
-            tail.next = new ListNode(nodes.pop());
-            tail = tail.next;
+        ListNode curr = prev.next;
+        System.out.println("prev " + prev + " current " + prev.next);
+        for (int i = 1; i < right - left; i++) {
+            ListNode temp = curr.next;
+            curr.next = temp.next;
+            temp.next = prev.next;
+            prev.next = temp;
         }
-        return dummyHead.next;
+        return dummy.next;
     }
 
     public static ListNode reverseListV1(ListNode head) {
@@ -40,6 +49,8 @@ public class ReverseLinkedList {
         node2.next = node3;
         node3.next = node4;
         node4.next = node5;
-        System.out.println(reverseListV1(head).toString());
+        int left = 2;
+        int right = 4;
+        System.out.println(reverseBetween(head, left, right));
     }
 }
