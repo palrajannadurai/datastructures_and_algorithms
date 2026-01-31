@@ -7,10 +7,10 @@ import java.util.Map;
 class LRUCache {
 
     private static class Node {
-        final int key;
-        int value;
-        Node next;
-        Node prev;
+        private final int key;
+        private int value;
+        private Node next;
+        private Node prev;
 
         public Node(int key, int value) {
             this.key = key;
@@ -18,28 +18,33 @@ class LRUCache {
         }
     }
 
-    private int capacity = 0;
+    private final int capacity;
     private final Map<Integer, Node> cache = new HashMap<>();
     private final Node head = new Node(-1, -1);
     private final Node tail = new Node(-1, -1);
 
-    public LRUCache(int capacity) throws IllegalAccessException {
-        if (capacity <= 0) {
-            throw new IllegalAccessException("Capacity must be non-negative");
-        }
+    public LRUCache(int capacity) {
         this.capacity = capacity;
         head.next = tail;
         tail.prev = head;
     }
 
     public int get(int key) {
-        if (!cache.containsKey(key)) {
+        Node node = cache.get(key);
+        if (node == null) {
             return -1;
         }
-        Node answer = cache.get(key);
-        deleteNode(answer);
-        addNode(answer);
-        return answer.value;
+        deleteNode(node);
+        addToFront(node);
+        return node.value;
+    }
+
+    private void evict() {
+        if (this.capacity == cache.size()) {
+            Node tail = this.tail.prev;
+            cache.remove(tail.key);
+            deleteNode(tail);
+        }
     }
 
     public void put(int key, int value) {
@@ -47,13 +52,9 @@ class LRUCache {
             deleteNode(cache.get(key));
             cache.remove(key);
         }
-        if (capacity == cache.size()) {
-            Node prev = tail.prev;
-            deleteNode(prev);
-            cache.remove(prev.key);
-        }
+        evict();
         Node newNode = new Node(key, value);
-        addNode(newNode);
+        addToFront(newNode);
         cache.put(key, newNode);
     }
 
@@ -65,7 +66,7 @@ class LRUCache {
         next.prev = prev;
     }
 
-    private void addNode(Node newNode) {
+    private void addToFront(Node newNode) {
         Node oldNext = this.head.next;
         this.head.next = newNode;
         newNode.prev = this.head;
