@@ -8,7 +8,7 @@ class LRUCache {
 
     private static class Node {
         private final int key;
-        private int value;
+        private final int value;
         private Node next;
         private Node prev;
 
