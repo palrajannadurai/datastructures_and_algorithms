@@ -1,9 +1,13 @@
 package com.dsa.string;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ValidAnagram {
-    public static boolean isAnagram(String s, String t) {
+
+    // this wont support if the string contains unicode
+    public static boolean isAnagramWithOutUnicode(String s, String t) {
         if (s.length() != t.length()) {
             return false;
         }
@@ -22,9 +26,28 @@ public class ValidAnagram {
         return true;
     }
 
+    public static boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        Map<Character, Integer> freq = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char sc = s.charAt(i);
+            char tc = t.charAt(i);
+            freq.put(sc, freq.getOrDefault(sc, 0) + 1);
+            freq.put(tc, freq.getOrDefault(tc, 0) - 1);
+        }
+        for (int value: freq.values()) {
+            if(value != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         String a = "cat";
-        String b = "act";
+        String b = "rct";
         System.out.println(isAnagram(a, b));
     }
 }

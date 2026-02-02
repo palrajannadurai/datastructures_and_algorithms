@@ -11,24 +11,20 @@ public class RottenOrange {
     private static final int[][] DIRECTIONS = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
     public int orangesRotting(int[][] grid) {
-        int m = grid.length;
-        int n = grid[0].length;
         Queue<int[]> queue = new ArrayDeque<>();
         int freshCount = prepareInitialState(grid, queue);
+        if (freshCount == 0) return 0;
 
-        if (freshCount == 0) {
-            return 0;
-        }
         int minutes = 0;
         while (!queue.isEmpty() && freshCount > 0) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 int[] curr = queue.poll();
-                for (int[] direction: DIRECTIONS) {
+                for (int[] direction : DIRECTIONS) {
                     assert curr != null;
                     int newRow = curr[0] + direction[0];
                     int newCol = curr[1] + direction[1];
-                    if (newRow >= 0 && newRow < m && newCol >= 0 && newCol < n && grid[newRow][newCol] == FRESH) {
+                    if (isFresh(grid, newRow, newCol)) {
                         queue.offer(new int[]{newRow, newCol});
                         freshCount--;
                         grid[newRow][newCol] = ROTTEN;
@@ -37,7 +33,18 @@ public class RottenOrange {
             }
             minutes++;
         }
-        return freshCount > 0 ? -1 : minutes;
+        return hasNoFreshOranges(freshCount) ? minutes : -1;
+    }
+
+    private boolean isFresh(int[][] grid, int row, int col) {
+        return row >= 0
+                && row < grid.length
+                && col >= 0 && col < grid[0].length
+                && grid[row][col] == FRESH;
+    }
+
+    private boolean hasNoFreshOranges(int freshCount) {
+        return freshCount == 0;
     }
 
     private int prepareInitialState(int[][] grid, Queue<int[]> q) {

@@ -1,24 +1,23 @@
-package com.dsa.string;
+package dsa.string;
 
 import java.util.Arrays;
 
 public class LongestCommonPrefix {
 
     public static String longestCommonPrefix(String[] strs) {
-        if (strs == null || strs.length < 1) {
+        if (strs == null || strs.length == 0) {
             return "";
         }
         Arrays.sort(strs);
-        String firstWord = strs[0], lastWord = strs[strs.length - 1];
-
-        int index = 0;
-        while (index < firstWord.length()) {
-            if (firstWord.charAt(index) != lastWord.charAt(index)) {
-                break;
-            }
-            index++;
+        String first = strs[0];
+        String last = strs[strs.length - 1];
+        int i = 0;
+        while (i < first.length()
+                && i < last.length()
+                && (first.charAt(i) == last.charAt(i))) {
+            i++;
         }
-        return index == 0 ? "" : firstWord.substring(0, index);
+        return first.substring(0, i);
     }
 
     public static void main(String[] args) {
