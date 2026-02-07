@@ -1,51 +1,54 @@
 package dsa.sortingalgorithms;
 
 
-/*
- *
- * * Recursively divide until it becomes single element and then sort while merging
- * *
- * *
- * **/
-
 import java.util.Arrays;
 
 public class MergeSort {
 
-    private static int[] mergeSort(int[] nums) {
-        if (nums.length <= 1) {
-            return nums;
+    private long mergeSort(int[] nums, int left, int right) {
+        long count = 0;
+        if (left < right) {
+            int mid = left + (right - left) / 2;
+            count += mergeSort(nums, left, mid);
+            count += mergeSort(nums, mid + 1, right);
+            count += merge(nums, left, mid, right);
         }
-        int mid = nums.length / 2;
-        int[] left = Arrays.copyOfRange(nums, 0, mid);
-        int[] right = Arrays.copyOfRange(nums, mid, nums.length);
-        left = mergeSort(left);
-        right = mergeSort(right);
-        return merge(left, right);
+        return count;
     }
 
-    private static int[] merge(int[] L, int[] R) {
-        int i = 0, j = 0, k = 0;
-        int[] temp = new int[L.length + R.length];
-        while (i < L.length && j < R.length) {
+    private long merge(int[] nums, int left, int mid, int right) {
+        int n1 = (mid - left) + 1;
+        int n2 = right - mid;
+
+        int[] L = new int[n1];
+        int[] R = new int[n2];
+
+        System.arraycopy(nums, left, L, 0, L.length);
+        System.arraycopy(nums, mid + 1, R, 0, R.length);
+
+        int i = 0;
+        int j = 0;
+        int k = left;
+
+        long inversions = 0;
+        while (i < n1 && j < n2) {
             if (L[i] <= R[j]) {
-                temp[k++] = L[i++];
+                nums[k++] = L[i++];
             } else {
-                temp[k++] = R[j++];
+                nums[k++] = R[j++];
+                inversions += (L.length - i);
             }
         }
-        while (i < L.length) {
-            temp[k++] = L[i++];
-        }
-        while (j < R.length) {
-            temp[k++] = R[j++];
-        }
-        return temp;
+
+        while (i < n1) nums[k++] = L[i++];
+        while (j < n2) nums[k++] = R[j++];
+
+        return inversions;
     }
 
     public static void main(String[] args) {
-        int[] arr = {6, 5, 12, 10, 9, 1};
-        System.out.println(Arrays.toString(mergeSort(arr)));
+        int[] nums = {6, 5, 12, 10, 9, 1};
+        new MergeSort().mergeSort(nums, 0, nums.length - 1);
+        System.out.println(Arrays.toString(nums));
     }
-
 }
