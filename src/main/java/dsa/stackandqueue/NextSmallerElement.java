@@ -3,7 +3,6 @@ package dsa.stackandqueue;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
-import java.util.Stack;
 
 public class NextSmallerElement {
     public static int[] nextSmallerElementBF(int[] arr) {

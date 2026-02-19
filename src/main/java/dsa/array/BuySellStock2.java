@@ -1,10 +1,5 @@
 package dsa.array;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-
 public class BuySellStock2 {
 
     public static int maxProfit(int[] prices) {

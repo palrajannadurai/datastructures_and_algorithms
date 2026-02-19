@@ -1,6 +1,9 @@
 package dsa.array;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class FourSum {
     public static List<List<Integer>> fourSumBF(int[] nums, int target) {

@@ -1,5 +1,8 @@
 package dsa.string;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class MinSubstring {
 
     private boolean hasAllCharacters(String s, int start, int end, int[] tFreq) {
@@ -15,31 +18,33 @@ public class MinSubstring {
         return true;
     }
 
-    public String minWindowBF(String s, String t) {
-        if (s.length() < t.length()) return "";
-
-        // Find the target Frequency
-        int[] tFreq = new int[128];
-        for (char sc : t.toCharArray()) {
-            tFreq[sc]++;
+    public int minWindowBF(String s, String t) {
+        if(s == null || s.isEmpty()) {
+            return 0;
+        }
+        final int n = s.length();
+        Set<Character> uniqueCharacters = new HashSet<>();
+        for (int i = 0; i < n; i++) {
+            uniqueCharacters.add(s.charAt(i));
         }
 
-        String minWindow = "";
-        int minLen = Integer.MAX_VALUE;
-        for (int start = 0; start < s.length(); start++) {
-            for (int end = start; end < s.length(); end++) {
-                int len = end - start + 1;
-                if (len < t.length()) {
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            Set<Character> curr = new HashSet<>();
+            for (int j = i; j < n; j++) {
+                if (j - i + 1 < uniqueCharacters.size()) {
                     continue;
                 }
-                if (hasAllCharacters(s, start, end, tFreq) && len < minLen) {
-                    minWindow = s.substring(start, end + 1);
-                    minLen = end - start + 1;
-                    break;
+                for (int k = i; k <= j; k++) {
+                    curr.add(s.charAt(k));
+                    if (uniqueCharacters.size() == curr.size()) {
+                        min = Math.min(min, j - i + 1);
+                        System.out.println(s.substring(i, j + 1) + " " + (j - i +1));
+                    }
                 }
             }
         }
-        return minWindow;
+        return min;
     }
 
 
@@ -70,7 +75,7 @@ public class MinSubstring {
     }
 
     public static void main(String[] args) {
-        String s = "ADOBECODEBANC";
-        System.out.println(new MinSubstring().minWindow("ADOBECODEBANC", "ABC"));
+        String s = "AAAAABBBCD";
+        System.out.println(new MinSubstring().minWindowBF(s, "ABC"));
     }
 }

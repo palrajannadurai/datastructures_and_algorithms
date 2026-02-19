@@ -1,9 +1,5 @@
 package dsa.dp;
 
-import com.sun.xml.internal.ws.util.StringUtils;
-
-import java.util.Arrays;
-
 public class HouseRobber {
     public int rob(int[] nums) {
         final int n = nums.length;

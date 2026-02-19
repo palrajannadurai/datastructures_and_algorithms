@@ -4,7 +4,6 @@ package dsa.sortingalgorithms;
 import java.util.Arrays;
 
 public class MergeSort {
-
     private long mergeSort(int[] nums, int left, int right) {
         long count = 0;
         if (left < right) {

@@ -1,4 +1,8 @@
+import sun.applet.AppletListener;
+
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
 public class Application {
@@ -30,12 +34,29 @@ public class Application {
         return res;
     }
 
-
-
+    public int findLongestChain(int[][] pairs) {
+        Arrays.sort(pairs, (a, b) -> Integer.compare(a[1],  b[1]));
+        int count = 0;
+        int lastEnd = Integer.MIN_VALUE;
+        for (int[] pair: pairs) {
+            int left = pair[0];
+            int right = pair[1];
+            if (left > lastEnd) {
+                count++;
+                lastEnd = right;
+            }
+        }
+        return count;
+    }
 
     public static void main(String[] args) {
-        int n = 25;
-        System.out.println(n % 10);
+        int[][] pairs = {{1, 2}, {2, 3}, {3, 4}};
+        System.out.println(new Application().findLongestChain(pairs));
+
+        List<Integer> nums = Arrays.asList(1, 2, 3, 4, 5);
+
+        Integer max = nums.stream().max(Integer::compareTo).orElse(null);
+        System.out.println(max);
     }
 
 }

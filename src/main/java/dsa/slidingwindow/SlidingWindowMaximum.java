@@ -1,6 +1,8 @@
 package dsa.slidingwindow;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Deque;
 
 public class SlidingWindowMaximum {
     public int[] maxSlidingWindow(int[] nums, int k) {
