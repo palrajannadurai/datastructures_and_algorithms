@@ -8,18 +8,17 @@ public class SlidingWindowMaximum {
     public int[] maxSlidingWindow(int[] nums, int k) {
         final int n = nums.length;
         int[] result = new int[n - k + 1];
-        Deque<Integer> q = new ArrayDeque<>();
-        for (int i = 0; i < n; i++) {
-            while (!q.isEmpty() && q.peekFirst() == i - k) {
-                q.pollFirst();
+        int left = 0, idx = 0;
+        Deque<Integer> queue = new ArrayDeque<>();
+        for (int right = 0; right < n; right++) {
+            while (!queue.isEmpty() && nums[queue.peekLast()] < nums[right]) {
+                queue.pollLast();
             }
-            while (!q.isEmpty() && nums[q.peekLast()] < nums[i]) {
-                q.pollLast();
-            }
-            q.offerLast(i);
-            if (i >= k - 1) {
-                if (q.peekFirst() != null) {
-                    result[i - k + 1] = nums[q.peekFirst()];
+            queue.offerLast(right);
+            if (right - left + 1 >= k) {
+                result[idx++] = nums[queue.peekFirst()];
+                if(queue.peekFirst() == left)  {
+                    queue.pollFirst();
                 }
             }
         }
