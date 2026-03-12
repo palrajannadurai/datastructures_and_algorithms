@@ -15,6 +15,17 @@ public class MergeInBetweenLinkedList {
         return head;
     }
 
+    public static void main(String[] args) {
+        int[] arr1 = {10, 1, 13, 6, 9, 5};
+        int[] arr2 = {1000000, 1000001, 1000002};
+        int a = 3, b = 4;
+
+        ListNode list1 = createList(arr1);
+        ListNode list2 = createList(arr2);
+
+        System.out.println(new MergeInBetweenLinkedList().mergeInBetween(list1, a, b, list2));
+    }
+
     public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
         ListNode beforeA = list1;
         for (int i = 0; i < a; i++) {
@@ -33,17 +44,5 @@ public class MergeInBetweenLinkedList {
         }
         list2End.next = afterB.next;
         return list1;
-    }
-
-
-    public static void main(String[] args) {
-        int[] arr1 = {10, 1, 13, 6, 9, 5};
-        int[] arr2 = {1000000, 1000001, 1000002};
-        int a = 3, b = 4;
-
-        ListNode list1 = createList(arr1);
-        ListNode list2 = createList(arr2);
-
-        System.out.println(new MergeInBetweenLinkedList().mergeInBetween(list1, a, b, list2));
     }
 }

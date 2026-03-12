@@ -1,6 +1,12 @@
 package dsa.slidingwindow.atmostk;
 
 public class SubarraysKDifferentIntegers {
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 1, 2, 3};
+        int k = 2;
+        System.out.println(new SubarraysKDifferentIntegers().subarraysWithKDistinct(nums, k));
+    }
+
     public int subarraysWithKDistinct(int[] nums, int k) {
         return atMostDistinct(nums, k) - atMostDistinct(nums, k - 1);
     }
@@ -25,11 +31,4 @@ public class SubarraysKDifferentIntegers {
         }
         return count;
     }
-
-    public static void main(String[] args) {
-        int[] nums = {1, 2, 1, 2, 3};
-        int k = 2;
-        System.out.println(new SubarraysKDifferentIntegers().subarraysWithKDistinct(nums, k));
-    }
-
 }

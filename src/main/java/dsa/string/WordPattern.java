@@ -5,6 +5,15 @@ import java.util.Map;
 import java.util.Objects;
 
 public class WordPattern {
+    public static void main(String[] args) {
+    /*Example 1:
+       Input: pattern = "abba", s = "dog cat cat dog"
+       Output: true
+    */
+        //        String pattern = "abba";
+        //        String s =
+    }
+
     public boolean wordPatternBF(String pattern, String s) {
         String[] words = s.split(" ");
         if (words.length != pattern.length()) {
@@ -14,7 +23,7 @@ public class WordPattern {
         for (int i = 0; i < pattern.length(); i++) {
             if (map.containsKey(pattern.charAt(i))) {
                 if (!map.get(pattern.charAt(i)).equals(words[i])) {
-                   return false;
+                    return false;
                 }
             } else {
                 if (map.containsValue(words[i])) {
@@ -34,21 +43,12 @@ public class WordPattern {
         }
         Map<Object, Integer> map = new HashMap<>();
         for (int i = 0; i < patternLength; i++) {
-          char c = pattern.charAt(i);
-          String word = words[i];
-          if (!Objects.equals(map.put(word, i), map.put(c, i))) {
-              return false;
-          }
+            char c = pattern.charAt(i);
+            String word = words[i];
+            if (!Objects.equals(map.put(word, i), map.put(c, i))) {
+                return false;
+            }
         }
         return true;
-    }
-
-    public static void main(String[] args) {
-        /*Example 1:
-            Input: pattern = "abba", s = "dog cat cat dog"
-            Output: true
-         */
-//        String pattern = "abba";
-//        String s =
     }
 }

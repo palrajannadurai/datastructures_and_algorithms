@@ -19,4 +19,3 @@ public class ListNode {
         return val + " --> " + next;
     }
 }
-

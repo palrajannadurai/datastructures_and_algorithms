@@ -1,6 +1,12 @@
 package dsa.slidingwindow.minwindow;
 
 public class MinOperationsToReduceXToZero {
+    public static void main(String[] args) {
+        int[] nums = {1, 1, 4, 2, 3};
+        int x = 5;
+        System.out.println(new MinSizeSubArraySum().minSubArrayLen(x, nums));
+    }
+
     public int minOperations(int[] nums, int x) {
         int totalSum = 0;
         for (int num : nums) {
@@ -28,11 +34,5 @@ public class MinOperationsToReduceXToZero {
             }
         }
         return maxLen == -1 ? -1 : nums.length - maxLen;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {1, 1, 4, 2, 3};
-        int x = 5;
-        System.out.println(new MinSizeSubArraySum().minSubArrayLen(x, nums));
     }
 }

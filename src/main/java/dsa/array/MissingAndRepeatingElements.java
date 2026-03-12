@@ -24,6 +24,5 @@ public class MissingAndRepeatingElements {
     public static void main(String[] args) {
         int[] nums = {1, 5, 4, 4, 6, 3};
         System.out.println(Arrays.toString(findMissingRepeatingNumbers(nums)));
-
     }
 }

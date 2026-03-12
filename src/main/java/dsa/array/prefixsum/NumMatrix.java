@@ -10,7 +10,11 @@ class NumMatrix {
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
                 // matrix[i][j] + top + left - topLeft
-                prefixMatrix[i][j] = matrix[i - 1][j - 1] + prefixMatrix[i - 1][j] + prefixMatrix[i][j - 1] - prefixMatrix[i - 1][j - 1];
+                prefixMatrix[i][j] =
+                        matrix[i - 1][j - 1]
+                                + prefixMatrix[i - 1][j]
+                                + prefixMatrix[i][j - 1]
+                                - prefixMatrix[i - 1][j - 1];
             }
         }
     }

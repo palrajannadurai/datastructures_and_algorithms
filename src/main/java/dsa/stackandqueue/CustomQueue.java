@@ -28,6 +28,43 @@ public class CustomQueue {
         this.size = 0;
     }
 
+    // Testing the queue
+    public static void main(String[] args) {
+
+        CustomQueue queue = new CustomQueue(5);
+
+        // ✅ Enqueue elements
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+
+        System.out.println(queue.peek()); // 10
+
+        // ✅ Dequeue elements
+        System.out.println(queue.dequeue()); // 10
+        System.out.println(queue.dequeue()); // 20
+
+        // ✅ Circular behavior test
+        queue.enqueue(40);
+        queue.enqueue(50);
+        queue.enqueue(60);
+        queue.enqueue(70);
+
+        /*
+            Queue elements logically now:
+            [30, 40, 50, 60, 70]
+            front wraps and rear wraps using modulo
+        */
+
+        // ✅ Dequeue all
+        while (!queue.isEmpty()) {
+            System.out.println(queue.dequeue());
+        }
+
+        // ✅ Edge case test (Uncomment to test underflow)
+//         queue.dequeue();
+    }
+
     // Adds an element to the end of the queue
     public void enqueue(int element) {
 
@@ -88,42 +125,5 @@ public class CustomQueue {
     // Queue is empty when no elements are present
     public boolean isEmpty() {
         return size == 0;
-    }
-
-    // Testing the queue
-    public static void main(String[] args) {
-
-        CustomQueue queue = new CustomQueue(5);
-
-        // ✅ Enqueue elements
-        queue.enqueue(10);
-        queue.enqueue(20);
-        queue.enqueue(30);
-
-        System.out.println(queue.peek()); // 10
-
-        // ✅ Dequeue elements
-        System.out.println(queue.dequeue()); // 10
-        System.out.println(queue.dequeue()); // 20
-
-        // ✅ Circular behavior test
-        queue.enqueue(40);
-        queue.enqueue(50);
-        queue.enqueue(60);
-        queue.enqueue(70);
-
-        /*
-            Queue elements logically now:
-            [30, 40, 50, 60, 70]
-            front wraps and rear wraps using modulo
-        */
-
-        // ✅ Dequeue all
-        while (!queue.isEmpty()) {
-            System.out.println(queue.dequeue());
-        }
-
-        // ✅ Edge case test (Uncomment to test underflow)
-//         queue.dequeue();
     }
 }

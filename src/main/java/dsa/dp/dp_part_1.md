@@ -3,19 +3,23 @@ DYNAMIC PROGRAMMING MASTER NOTES (HUMAN / NUMAN THINKING)
 --------------------------------------------------
 HOW TO THINK IN DP
 --------------------------------------------------
+
 1. Decide what dp represents in simple words
 2. Base case = smallest valid answer
 3. Current answer is built using previous answers
 4. Final dp value gives result
 
 --------------------------------------------------
+
 1) MAX PRODUCT SUBARRAY
+
 --------------------------------------------------
 Problem:
 Find the maximum product of a contiguous subarray.
 
 Human intuition:
 Because negative * negative = positive, we must track:
+
 - max product ending here
 - min product ending here
 
@@ -50,10 +54,13 @@ int ans = nums[0];
         }
         return ans;
     }
+
 }
 
 --------------------------------------------------
+
 2) LONGEST INCREASING SUBSEQUENCE (LIS)
+
 --------------------------------------------------
 Problem:
 Find the length of the longest strictly increasing subsequence.
@@ -94,10 +101,13 @@ int ans = 0;
         }
         return ans;
     }
+
 }
 
 --------------------------------------------------
+
 3) LONGEST COMMON SUBSEQUENCE (LCS)
+
 --------------------------------------------------
 Problem:
 Find the longest subsequence common to two strings.
@@ -135,10 +145,13 @@ int[][] dp = new int[m + 1][n + 1];
         }
         return dp[m][n];
     }
+
 }
 
 --------------------------------------------------
+
 4) 0/1 KNAPSACK
+
 --------------------------------------------------
 Problem:
 Maximize value with weight constraint.
@@ -180,10 +193,13 @@ int[][] dp = new int[n + 1][W + 1];
         }
         return dp[n][W];
     }
+
 }
 
 --------------------------------------------------
+
 5) EDIT DISTANCE
+
 --------------------------------------------------
 Problem:
 Convert word1 to word2 using insert, delete, replace.
@@ -199,8 +215,8 @@ If chars match:
 dp[i][j] = dp[i-1][j-1]
 Else:
 dp[i][j] = 1 + min(
-dp[i-1][j],     // delete
-dp[i][j-1],     // insert
+dp[i-1][j], // delete
+dp[i][j-1], // insert
 dp[i-1][j-1]    // replace
 )
 
@@ -227,10 +243,13 @@ int[][] dp = new int[m + 1][n + 1];
         }
         return dp[m][n];
     }
+
 }
 
 --------------------------------------------------
+
 6) MAXIMUM SUM INCREASING SUBSEQUENCE (MSIS)
+
 --------------------------------------------------
 Problem:
 Find increasing subsequence with maximum sum.
@@ -265,10 +284,13 @@ int ans = 0;
         }
         return ans;
     }
+
 }
 
 --------------------------------------------------
+
 7) MATRIX CHAIN MULTIPLICATION (MCM)
+
 --------------------------------------------------
 Problem:
 Find minimum cost to multiply matrices.
@@ -302,4 +324,5 @@ int[][] dp = new int[n][n];
         }
         return dp[1][n - 1];
     }
+
 }

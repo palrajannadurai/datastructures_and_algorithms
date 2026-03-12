@@ -1,6 +1,13 @@
 package dsa.slidingwindow;
 
 public class LeetCode1456 {
+    public static void main(String[] args) {
+        String s = "abciiidef";
+        int k = 3;
+        LeetCode1456 instanc = new LeetCode1456();
+        System.out.println(instanc.maxVowels(s, k));
+    }
+
     private boolean isVowel(char c) {
         return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
     }
@@ -28,12 +35,5 @@ public class LeetCode1456 {
             }
         }
         return maxLength;
-    }
-
-    public static void main(String[] args) {
-        String s = "abciiidef";
-        int k = 3;
-        LeetCode1456 instanc = new LeetCode1456();
-        System.out.println(instanc.maxVowels(s, k));
     }
 }

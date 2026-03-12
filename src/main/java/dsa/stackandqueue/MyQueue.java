@@ -3,8 +3,8 @@ package dsa.stackandqueue;
 import java.util.Stack;
 
 class MyQueue {
-    private Stack<Integer> mainStack;
-    private Stack<Integer> helperStack;
+    private final Stack<Integer> mainStack;
+    private final Stack<Integer> helperStack;
 
     public MyQueue() {
         mainStack = new Stack<>();
@@ -32,5 +32,4 @@ class MyQueue {
     public boolean empty() {
         return mainStack.empty();
     }
-
 }

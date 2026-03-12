@@ -36,8 +36,8 @@ public class ValidAnagram {
             freq.put(sc, freq.getOrDefault(sc, 0) + 1);
             freq.put(tc, freq.getOrDefault(tc, 0) - 1);
         }
-        for (int value: freq.values()) {
-            if(value != 0) {
+        for (int value : freq.values()) {
+            if (value != 0) {
                 return false;
             }
         }

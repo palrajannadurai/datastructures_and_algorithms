@@ -24,7 +24,7 @@ public class LongestConsecutiveSequence {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,0,1,2};
+        int[] nums = {1, 0, 1, 2};
         System.out.println(longestConsecutive(nums));
     }
 }

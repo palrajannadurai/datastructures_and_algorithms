@@ -19,7 +19,6 @@ public class Permutations {
             backtrack(nums, result, current);
             current.remove(current.size() - 1);
         }
-
     }
 
     public static List<List<Integer>> permute(int[] nums) {

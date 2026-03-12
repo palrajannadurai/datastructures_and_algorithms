@@ -5,6 +5,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ThreeSum {
+    public static void main(String[] args) {
+
+    }
+
     public List<List<Integer>> threeSum(int[] nums) {
         final int n = nums.length;
         List<List<Integer>> res = new ArrayList<>();
@@ -21,7 +25,7 @@ public class ThreeSum {
                     res.add(Arrays.asList(nums[i], nums[left], nums[right]));
                     left++;
                     right--;
-                    while (left < right && nums[left] == nums[left -1]) {
+                    while (left < right && nums[left] == nums[left - 1]) {
                         left++;
                     }
                     while (left < right && nums[right] == nums[right + 1]) {
@@ -35,9 +39,5 @@ public class ThreeSum {
             }
         }
         return res;
-    }
-
-    public static void main(String[] args) {
-
     }
 }

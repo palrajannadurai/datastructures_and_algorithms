@@ -7,7 +7,7 @@ import java.util.Map;
 
 class StockSpanner {
 
-    private Deque<int[]> deque;
+    private final Deque<int[]> deque;
 
     public StockSpanner() {
         deque = new ArrayDeque<>();
@@ -29,7 +29,7 @@ class StockSpanner {
         }
         int res = -1;
         for (Map.Entry<Integer, Integer> kv : map.entrySet()) {
-            if(kv.getValue() == 1) {
+            if (kv.getValue() == 1) {
                 res = kv.getValue();
             }
         }

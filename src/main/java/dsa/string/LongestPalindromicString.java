@@ -33,5 +33,3 @@ public class LongestPalindromicString {
         System.out.println("Longest palindromic substring: " + longestPalindrome(input));
     }
 }
-
-

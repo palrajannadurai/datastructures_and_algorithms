@@ -1,6 +1,11 @@
 package dsa.string;
 
 public class IsPalindrome {
+    public static void main(String[] args) {
+        String empty = "";
+        System.out.println(new IsPalindrome().isPalindrome(empty));
+    }
+
     public boolean isPalindrome(String s) {
         int l = 0;
         int r = s.length() - 1;
@@ -18,10 +23,5 @@ public class IsPalindrome {
             r--;
         }
         return true;
-    }
-
-    public static void main(String[] args) {
-        String empty = "";
-        System.out.println(new IsPalindrome().isPalindrome(empty));
     }
 }

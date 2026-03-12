@@ -1,6 +1,10 @@
 package dsa.string;
 
 public class LongestRepeatingCharacterReplacement {
+    public static void main(String[] args) {
+        System.out.println(new LongestRepeatingCharacterReplacement().characterReplacement("ABAB", 2));
+    }
+
     public int characterReplacementBF(String s, int k) {
         final int n = s.length();
         int maxLen = 0;
@@ -39,10 +43,6 @@ public class LongestRepeatingCharacterReplacement {
             maxLen = Math.max(maxLen, right - left + 1);
         }
         return maxLen;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new LongestRepeatingCharacterReplacement().characterReplacement("ABAB", 2));
     }
 
 }

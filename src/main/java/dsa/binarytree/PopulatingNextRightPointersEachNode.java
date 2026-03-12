@@ -13,7 +13,7 @@ public class PopulatingNextRightPointersEachNode {
                 if (current.next != null) {
                     current.right.next = current.next.left;
                 }
-                current  = current.next;
+                current = current.next;
             }
             prev = prev.left;
         }

@@ -17,7 +17,6 @@ public class RotateArray {
         reverse(nums, 0, n - 1);
         reverse(nums, 0, d - 1);
         reverse(nums, d, n - 1);
-
     }
 
     /*

@@ -4,6 +4,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class MaximumSumOfSubArraySizeK {
+    public static void main(String[] args) {
+        int[] nums = {1, 5, 4, 2, 9, 9, 9};
+        int k = 3;
+        MaximumSumOfSubArraySizeK instance = new MaximumSumOfSubArraySizeK();
+        System.out.println(instance.maximumSubarraySum(nums, k));
+    }
+
     public long maximumSubarraySum(int[] nums, int k) {
         int n = nums.length;
         if (n < k) {
@@ -29,12 +36,5 @@ public class MaximumSumOfSubArraySizeK {
             }
         }
         return ans;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {1, 5, 4, 2, 9, 9, 9};
-        int k = 3;
-        MaximumSumOfSubArraySizeK instance = new MaximumSumOfSubArraySizeK();
-        System.out.println(instance.maximumSubarraySum(nums, k));
     }
 }

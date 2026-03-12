@@ -3,25 +3,21 @@ package dsa.binarytree;
 import java.util.Deque;
 import java.util.LinkedList;
 
-
 public class MaximumWidthOfBinaryTree {
 
-    static class Pair {
-        long index;
-        TreeNode node;
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
 
-        public Pair(long index, TreeNode node) {
-            this.index = index;
-            this.node = node;
-        }
+        root.left = new TreeNode(3);
+        root.right = new TreeNode(2);
 
-        @Override
-        public String toString() {
-            return "Pair{" +
-                    "index=" + index +
-                    ", node=" + node +
-                    '}';
-        }
+        root.left.left = new TreeNode(5);
+        root.left.right = new TreeNode(3);
+
+        root.right.right = new TreeNode(9);
+
+        System.out.println(new MaximumWidthOfBinaryTree().widthOfBinaryTree(root));
+
     }
 
     public int widthOfBinaryTree(TreeNode root) {
@@ -42,7 +38,7 @@ public class MaximumWidthOfBinaryTree {
                 if (i == 0) start = current.index - base;
                 if (i == size - 1) last = base - current.index;
                 if (current.node.right != null) {
-                    bfsQueue.offer(new Pair(2l * current.index + 1L, current.node.right));
+                    bfsQueue.offer(new Pair(2L * current.index + 1L, current.node.right));
                 }
                 if (current.node.left != null) {
                     bfsQueue.offer(new Pair(2 * current.index, current.node.left));
@@ -53,18 +49,21 @@ public class MaximumWidthOfBinaryTree {
         return Math.toIntExact(ans);
     }
 
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
+    static class Pair {
+        long index;
+        TreeNode node;
 
-        root.left = new TreeNode(3);
-        root.right = new TreeNode(2);
+        public Pair(long index, TreeNode node) {
+            this.index = index;
+            this.node = node;
+        }
 
-        root.left.left = new TreeNode(5);
-        root.left.right = new TreeNode(3);
-
-        root.right.right = new TreeNode(9);
-
-        System.out.println(new MaximumWidthOfBinaryTree().widthOfBinaryTree(root));
-
+        @Override
+        public String toString() {
+            return "Pair{" +
+                    "index=" + index +
+                    ", node=" + node +
+                    '}';
+        }
     }
 }

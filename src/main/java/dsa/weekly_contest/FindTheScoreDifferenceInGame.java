@@ -27,6 +27,10 @@ package dsa.weekly_contest;
         (Player1 total score - Player2 total score)
 */
 public class FindTheScoreDifferenceInGame {
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3};
+    }
+
     public int scoreDifference(int[] nums) {
         int n = nums.length;
         int playerOne = 0, playerTwo = 0;
@@ -46,9 +50,5 @@ public class FindTheScoreDifferenceInGame {
             }
         }
         return playerOne - playerTwo;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {1, 2, 3};
     }
 }

@@ -8,9 +8,13 @@ public class NQueens {
     private final Set<Integer> mainDiagonal = new HashSet<>();
     private final Set<Integer> antiDiagonal = new HashSet<>();
 
+    public static void main(String[] args) {
+        System.out.println(new NQueens().solveNQueens(4));
+    }
+
     private char[][] createBoard(int n) {
         char[][] board = new char[n][n];
-        for (char[] item: board) {
+        for (char[] item : board) {
             Arrays.fill(item, '.');
         }
         return board;
@@ -30,7 +34,7 @@ public class NQueens {
 
     private void construct(char[][] board) {
         List<String> temp = new ArrayList<>();
-        for (char[] r: board) {
+        for (char[] r : board) {
             temp.add(new String(r));
         }
         result.add(temp);
@@ -58,10 +62,6 @@ public class NQueens {
             mainDiagonal.remove(row - col);
             antiDiagonal.remove(row + col);
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new NQueens().solveNQueens(4));
     }
 
 }

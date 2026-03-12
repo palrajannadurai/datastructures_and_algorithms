@@ -4,6 +4,11 @@ import java.util.Arrays;
 
 public class LongestCommonSubsequence {
 
+    public static void main(String[] args) {
+        String text1 = "abcde", text2 = "ace";
+        System.out.println(new LongestCommonSubsequence().longestCommonSubsequence(text1, text2));
+    }
+
     public int longestCommonSubsequenceV1(String s1, String s2) {
         int m = s1.length();
         int n = s2.length();
@@ -37,10 +42,5 @@ public class LongestCommonSubsequence {
             return 1 + dfs(i + 1, j + 1, text1, text2);
         }
         return Math.max(dfs(i + 1, j, text1, text2), dfs(i, j + 1, text1, text2));
-    }
-
-    public static void main(String[] args) {
-        String text1 = "abcde", text2 = "ace";
-        System.out.println(new LongestCommonSubsequence().longestCommonSubsequence(text1, text2));
     }
 }

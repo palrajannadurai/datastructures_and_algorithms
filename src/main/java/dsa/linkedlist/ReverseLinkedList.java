@@ -2,17 +2,17 @@ package dsa.linkedlist;
 
 public class ReverseLinkedList {
     /*
-    *
-    * * Input: Head = A -> B -> C -> D -> E    Left = 2 Right = 4
-    * *
-    * * OutPut: A-> D -> C -> B -> E
-    * **/
+     *
+     * * Input: Head = A -> B -> C -> D -> E    Left = 2 Right = 4
+     * *
+     * * OutPut: A-> D -> C -> B -> E
+     * **/
     public static ListNode reverseBetween(ListNode head, int left, int right) {
-       if(head == null || left == right) {
-           return head;
-       }
-       ListNode dummy = new ListNode(0, head);
-       ListNode prev = dummy;
+        if (head == null || left == right) {
+            return head;
+        }
+        ListNode dummy = new ListNode(0, head);
+        ListNode prev = dummy;
         for (int i = 1; i < left; i++) {
             prev = prev.next;
         }

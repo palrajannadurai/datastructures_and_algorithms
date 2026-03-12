@@ -35,14 +35,12 @@ public class MorrisTraversal {
     }
 
     /*
-    *
-    * *
-    * *
-    * *
-    * *
-    * **/
-
-
+     *
+     * *
+     * *
+     * *
+     * *
+     * **/
 
     public List<Integer> morrisPreOrder(TreeNode root) {
         if (root == null) {

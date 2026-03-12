@@ -26,7 +26,6 @@ public class RemoveDuplicates {
             }
             nums[index++] = entry.getKey();
             k++;
-
         }
         return k;
     }

@@ -5,6 +5,15 @@ import java.util.LinkedList;
 
 public class SymmetricTree {
 
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(10);
+        root.left = new TreeNode(5);
+        root.right = new TreeNode(5);
+        root.left.left = new TreeNode(2);
+        root.right.right = new TreeNode(2);
+        System.out.println(new SymmetricTree().isSymmetric(root));
+    }
+
     private boolean isMirror(TreeNode right, TreeNode left) {
         if (right == null && left == null) {
             return true;
@@ -44,14 +53,5 @@ public class SymmetricTree {
             deque.offer(left.right);
         }
         return true;
-    }
-
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(10);
-        root.left = new TreeNode(5);
-        root.right = new TreeNode(5);
-        root.left.left = new TreeNode(2);
-        root.right.right = new TreeNode(2);
-        System.out.println(new SymmetricTree().isSymmetric(root));
     }
 }

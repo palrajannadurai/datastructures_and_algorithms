@@ -5,13 +5,13 @@ import java.util.Collections;
 import java.util.List;
 
 /*
-*
-* *     1
-* *    1 1
-* *   1 2 1
-* *  1 3 3 1
-* *
-* **/
+ *
+ * *     1
+ * *    1 1
+ * *   1 2 1
+ * *  1 3 3 1
+ * *
+ * **/
 
 public class PascalTriangle {
     public static List<List<Integer>> generate(int numRows) {
@@ -33,6 +33,5 @@ public class PascalTriangle {
 
     public static void main(String[] args) {
         System.out.println(generate(4));
-
     }
 }

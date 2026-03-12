@@ -49,7 +49,6 @@ public class MaximumSumCombination {
             }
         }
         return result;
-
     }
 
     public static void main(String[] args) {
@@ -57,5 +56,4 @@ public class MaximumSumCombination {
         int[] n2 = {2, 6, 3};
         System.out.println(maximumSumCombination(n1, n2, 2));
     }
-
 }

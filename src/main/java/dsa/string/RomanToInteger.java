@@ -4,7 +4,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class RomanToInteger {
-    private static Map<Character, Integer> romans = new LinkedHashMap<>();
+    private static final Map<Character, Integer> romans = new LinkedHashMap<>();
+
     static {
         romans.put('I', 1);
         romans.put('V', 5);
@@ -14,6 +15,7 @@ public class RomanToInteger {
         romans.put('D', 500);
         romans.put('M', 1000);
     }
+
     public static int romanToInt(String s) {
         int result = 0;
         for (int i = 0; i < s.length(); i++) {

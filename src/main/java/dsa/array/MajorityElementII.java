@@ -8,14 +8,14 @@ import java.util.Map;
 public class MajorityElementII {
     public static List<Integer> majorityElement(int[] nums) {
         Map<Integer, Integer> freqMap = new HashMap<>();
-        for (int num: nums) {
+        for (int num : nums) {
             freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
         }
 
         int threshold = nums.length / 3;
         List<Integer> majorityElement = new ArrayList<>();
 
-        for (Map.Entry<Integer, Integer> obj: freqMap.entrySet()) {
+        for (Map.Entry<Integer, Integer> obj : freqMap.entrySet()) {
             if (obj.getValue() > threshold) {
                 majorityElement.add(obj.getKey());
             }

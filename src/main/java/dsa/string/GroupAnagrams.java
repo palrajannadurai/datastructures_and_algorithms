@@ -6,6 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 public class GroupAnagrams {
+    public static void main(String[] args) {
+        String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        System.out.println(new GroupAnagrams().groupAnagrams(strs));
+    }
+
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> res = new HashMap<>();
         for (String str : strs) {
@@ -25,10 +30,5 @@ public class GroupAnagrams {
             key.append('#').append(i);
         }
         return key.toString();
-    }
-
-    public static void main(String[] args) {
-        String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
-        System.out.println(new GroupAnagrams().groupAnagrams(strs));
     }
 }

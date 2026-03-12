@@ -13,12 +13,12 @@ public class PermutationSequence {
             factorial[i] = factorial[i - 1] * i;
         }
         k--;
-        StringBuilder sb =  new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for (int i = n; i > 0; i--) {
-            int idx = k / factorial[i-1];
+            int idx = k / factorial[i - 1];
             sb.append(numbers.get(idx));
             numbers.remove(idx);
-            k = k % factorial[i-1];
+            k = k % factorial[i - 1];
         }
         return sb.toString();
     }
@@ -26,8 +26,6 @@ public class PermutationSequence {
     public static void main(String[] args) {
         int n = 3;
         int k = 3;
-        System.out.println(
-                getPermutation(n, k)
-        );
+        System.out.println(getPermutation(n, k));
     }
 }

@@ -5,7 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CombinationSumII {
-    static void backtrack(int[] nums, List<List<Integer>> result, List<Integer> current, int start, int target) {
+    static void backtrack(
+            int[] nums, List<List<Integer>> result, List<Integer> current, int start, int target) {
         if (target < 0) {
             return;
         }
@@ -14,7 +15,7 @@ public class CombinationSumII {
             return;
         }
         for (int i = start; i < nums.length; i++) {
-            if ( i > start && nums[i] == nums[i-1]) {
+            if (i > start && nums[i] == nums[i - 1]) {
                 continue;
             }
             current.add(nums[i]);
@@ -22,7 +23,6 @@ public class CombinationSumII {
             current.remove(current.size() - 1);
         }
     }
-
 
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
@@ -32,7 +32,7 @@ public class CombinationSumII {
     }
 
     public static void main(String[] args) {
-        int[] candidates = {10,1,2,7,6,1,5};
+        int[] candidates = {10, 1, 2, 7, 6, 1, 5};
         int target = 8;
         System.out.println(combinationSum(candidates, target));
     }

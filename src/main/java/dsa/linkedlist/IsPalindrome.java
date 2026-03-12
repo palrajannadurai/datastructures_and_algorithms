@@ -12,7 +12,8 @@ public class IsPalindrome {
             elements.add(head.val);
             head = head.next;
         }
-        int start = 0; int end = elements.size() - 1;
+        int start = 0;
+        int end = elements.size() - 1;
         while (start < end && Objects.equals(elements.get(start), elements.get(end))) {
             start++;
             end--;

@@ -2,6 +2,11 @@ package dsa.array;
 
 public class ContainerWithMostWater {
 
+    public static void main(String[] args) {
+        int[] heights = {1, 8, 6, 2, 5, 4, 8, 3, 7};
+        System.out.println(new ContainerWithMostWater().maxArea(heights));
+    }
+
     public int maxAreaBF(int[] height) {
         int n = height.length;
         int maxArea = 0;
@@ -30,10 +35,5 @@ public class ContainerWithMostWater {
             }
         }
         return maxArea;
-    }
-
-    public static void main(String[] args) {
-        int[] heights = {1, 8, 6, 2, 5, 4, 8, 3, 7};
-        System.out.println(new ContainerWithMostWater().maxArea(heights));
     }
 }

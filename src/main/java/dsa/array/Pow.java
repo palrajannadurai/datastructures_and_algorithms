@@ -1,6 +1,11 @@
 package dsa.array;
 
 public class Pow {
+    public static void main(String[] args) {
+        Pow pow = new Pow();
+        System.out.println(pow.myPow(2, 10));
+    }
+
     public double myPow(double x, int n) {
         long exp = n;
         if (exp < 0) {
@@ -16,10 +21,5 @@ public class Pow {
             exp >>= 1;
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        Pow pow = new Pow();
-        System.out.println(pow.myPow(2, 10));
     }
 }

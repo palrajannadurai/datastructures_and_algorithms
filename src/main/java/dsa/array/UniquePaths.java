@@ -3,12 +3,17 @@ package dsa.array;
 public class UniquePaths {
 
     static long nCr(int n, int r) {
-        r = Math.min(r, n-r);
+        r = Math.min(r, n - r);
         long result = 1;
-        for (int i = 1; i <= r ; i++) {
+        for (int i = 1; i <= r; i++) {
             result = result * (n - i + 1) / i;
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        UniquePaths up = new UniquePaths();
+        System.out.println(up.uniquePaths(3, 7));
     }
 
     public int uniquePaths(int m, int n) {
@@ -19,10 +24,5 @@ public class UniquePaths {
         int requiredRightMoves = n - 1;
         int totalMoves = requiredDownMoves + requiredRightMoves;
         return Math.toIntExact(nCr(totalMoves, requiredDownMoves));
-    }
-
-    public static void main(String[] args) {
-        UniquePaths up = new UniquePaths();
-        System.out.println(up.uniquePaths(3, 7));
     }
 }

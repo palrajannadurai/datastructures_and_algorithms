@@ -10,6 +10,11 @@ public class RottenOrange {
     private static final int ROTTEN = 2;
     private static final int[][] DIRECTIONS = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
+    public static void main(String[] args) {
+        int[][] grid = {{2, 1, 1}, {1, 1, 0}, {0, 1, 1}};
+        System.out.println(new RottenOrange().orangesRotting(grid));
+    }
+
     public int orangesRotting(int[][] grid) {
         Queue<int[]> queue = new ArrayDeque<>();
         int freshCount = prepareInitialState(grid, queue);
@@ -39,7 +44,8 @@ public class RottenOrange {
     private boolean isFresh(int[][] grid, int row, int col) {
         return row >= 0
                 && row < grid.length
-                && col >= 0 && col < grid[0].length
+                && col >= 0
+                && col < grid[0].length
                 && grid[row][col] == FRESH;
     }
 
@@ -59,11 +65,5 @@ public class RottenOrange {
             }
         }
         return freshCount;
-    }
-
-
-    public static void main(String[] args) {
-        int[][] grid = {{2, 1, 1}, {1, 1, 0}, {0, 1, 1}};
-        System.out.println(new RottenOrange().orangesRotting(grid));
     }
 }

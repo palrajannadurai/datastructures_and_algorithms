@@ -1,6 +1,11 @@
 package dsa.dp;
 
 public class PartitionEqualSubsetSum {
+    public static void main(String[] args) {
+        int[] nums = {1, 5, 11, 5};
+        System.out.println(new PartitionEqualSubsetSum().canPartition(nums));
+    }
+
     public boolean canPartitionV1(int[] nums) {
         int sum = 0;
         for (int n : nums) sum += n;
@@ -29,21 +34,16 @@ public class PartitionEqualSubsetSum {
 
     public boolean canPartition(int[] nums) {
         int n = nums.length;
-        int sum  = 0;
+        int sum = 0;
         for (int num : nums) sum += num;
         if (sum % 2 != 0) return false;
         int target = sum / 2;
         boolean[] dp = new boolean[target + 1];
-        for (int num: nums) {
+        for (int num : nums) {
             for (int s = target; s >= num; s--) {
                 dp[s] = dp[s] || dp[s - num];
             }
         }
         return dp[target];
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {1, 5, 11, 5};
-        System.out.println(new PartitionEqualSubsetSum().canPartition(nums));
     }
 }

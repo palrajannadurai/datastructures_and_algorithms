@@ -5,6 +5,12 @@ import java.util.Set;
 
 public class LongestSubstringWithoutRepeatingCharacters {
 
+    public static void main(String[] args) {
+        String s = " ";
+        LongestSubstringWithoutRepeatingCharacters longestSubstringWithoutRepeatingCharacters = new LongestSubstringWithoutRepeatingCharacters();
+        System.out.println(longestSubstringWithoutRepeatingCharacters.lengthOfLongestSubstring(s));
+    }
+
     public int lengthOfLongestSubstring(String s) {
         Set<Character> set = new HashSet<>();
         int max = 0;
@@ -19,11 +25,5 @@ public class LongestSubstringWithoutRepeatingCharacters {
             max = Math.max(max, right - left + 1);
         }
         return max;
-    }
-
-    public static void main(String[] args) {
-        String s = " ";
-        LongestSubstringWithoutRepeatingCharacters longestSubstringWithoutRepeatingCharacters = new LongestSubstringWithoutRepeatingCharacters();
-        System.out.println(longestSubstringWithoutRepeatingCharacters.lengthOfLongestSubstring(s));
     }
 }

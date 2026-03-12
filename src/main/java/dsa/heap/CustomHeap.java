@@ -5,12 +5,38 @@ import java.util.Comparator;
 import java.util.List;
 
 public class CustomHeap<T> {
-    private List<T> elements;
     private final Comparator<T> comparator;
+    private final List<T> elements;
 
     public CustomHeap(Comparator<T> comparator) {
         this.elements = new ArrayList<>();
         this.comparator = comparator;
+    }
+
+    public static void main(String[] args) {
+        CustomHeap<Integer> minHeap = new CustomHeap<Integer>(Comparator.naturalOrder());
+
+        minHeap.push(5);
+        minHeap.push(1);
+        minHeap.push(9);
+        minHeap.push(3);
+
+        System.out.println("MinHeap pop order:");
+        while (!minHeap.isEmpty()) {
+            System.out.print(minHeap.pop() + " ");
+        }
+
+        CustomHeap<Integer> maxHeap = new CustomHeap<Integer>(Comparator.reverseOrder());
+
+        maxHeap.push(5);
+        maxHeap.push(1);
+        maxHeap.push(9);
+        maxHeap.push(3);
+        System.out.println("\n");
+        System.out.println("MaxHeap pop order:");
+        while (!maxHeap.isEmpty()) {
+            System.out.print(maxHeap.pop() + " ");
+        }
     }
 
     public int size() {
@@ -82,32 +108,6 @@ public class CustomHeap<T> {
 
     public T peek() {
         return elements.isEmpty() ? null : elements.get(0);
-    }
-
-    public static void main(String[] args) {
-        CustomHeap<Integer> minHeap = new CustomHeap<Integer>(Comparator.naturalOrder());
-
-        minHeap.push(5);
-        minHeap.push(1);
-        minHeap.push(9);
-        minHeap.push(3);
-
-        System.out.println("MinHeap pop order:");
-        while (!minHeap.isEmpty()) {
-            System.out.print(minHeap.pop() + " ");
-        }
-
-        CustomHeap<Integer> maxHeap = new CustomHeap<Integer>(Comparator.reverseOrder());
-
-        maxHeap.push(5);
-        maxHeap.push(1);
-        maxHeap.push(9);
-        maxHeap.push(3);
-        System.out.println("\n");
-        System.out.println("MaxHeap pop order:");
-        while (!maxHeap.isEmpty()) {
-            System.out.print(maxHeap.pop() + " ");
-        }
     }
 
 }

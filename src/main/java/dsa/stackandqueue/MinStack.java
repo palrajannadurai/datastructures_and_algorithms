@@ -3,16 +3,6 @@ package dsa.stackandqueue;
 import java.util.Stack;
 
 class MinStack {
-    private static class Node {
-        int value;
-        int min;
-
-        public Node(int value, int min) {
-            this.value = value;
-            this.min = min;
-        }
-    }
-
     private Stack<Node> stack = null;
 
     public MinStack() {
@@ -37,5 +27,15 @@ class MinStack {
 
     public int getMin() {
         return stack.peek().min;
+    }
+
+    private static class Node {
+        int value;
+        int min;
+
+        public Node(int value, int min) {
+            this.value = value;
+            this.min = min;
+        }
     }
 }

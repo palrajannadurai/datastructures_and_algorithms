@@ -4,6 +4,11 @@ import java.util.Arrays;
 
 public class LongestIncreasingSubsequence {
 
+    public static void main(String[] args) {
+        int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
+        System.out.println(new LongestIncreasingSubsequence().lengthOfLIS(nums));
+    }
+
     public int lengthOfLISV1(int[] nums) {
         int n = nums.length;
         int[] dp = new int[n];
@@ -34,10 +39,5 @@ public class LongestIncreasingSubsequence {
             take = 1 + dfs(nums, index + 1, nums[index]);
         }
         return Math.max(take, notTake);
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
-        System.out.println(new LongestIncreasingSubsequence().lengthOfLIS(nums));
     }
 }

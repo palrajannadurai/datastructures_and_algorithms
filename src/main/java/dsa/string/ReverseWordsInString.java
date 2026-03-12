@@ -1,6 +1,11 @@
 package dsa.string;
 
 public class ReverseWordsInString {
+    public static void main(String[] args) {
+        String s = "the sky is blue";
+        System.out.println(new ReverseWordsInString().reverseWords(s));
+    }
+
     public String reverseWords(String s) {
         String[] words = s.trim().split("\\s+");
         StringBuilder sb = new StringBuilder();
@@ -11,10 +16,5 @@ public class ReverseWordsInString {
             }
         }
         return sb.toString();
-    }
-
-    public static void main(String[] args) {
-        String s = "the sky is blue";
-        System.out.println(new ReverseWordsInString().reverseWords(s));
     }
 }

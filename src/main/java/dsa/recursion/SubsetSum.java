@@ -12,7 +12,8 @@ public class SubsetSum {
         if (nums[n - 1] > target) {
             return hasSubsetSumExists(nums, n - 1, target);
         }
-        return hasSubsetSumExists(nums, n - 1, target) || hasSubsetSumExists(nums, n - 1, target - nums[n - 1]);
+        return hasSubsetSumExists(nums, n - 1, target)
+                || hasSubsetSumExists(nums, n - 1, target - nums[n - 1]);
     }
 
     // TODO: DP/Memoization technique we have to use
@@ -22,5 +23,4 @@ public class SubsetSum {
         int target = 0;
         System.out.println(hasSubsetSumExists(arr, arr.length, target));
     }
-
 }

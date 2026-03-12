@@ -1,9 +1,14 @@
 package dsa.sortingalgorithms;
 
-
 import java.util.Arrays;
 
 public class MergeSort {
+    public static void main(String[] args) {
+        int[] nums = {6, 5, 12, 10, 9, 1};
+        new MergeSort().mergeSort(nums, 0, nums.length - 1);
+        System.out.println(Arrays.toString(nums));
+    }
+
     private long mergeSort(int[] nums, int left, int right) {
         long count = 0;
         if (left < right) {
@@ -43,11 +48,5 @@ public class MergeSort {
         while (j < n2) nums[k++] = R[j++];
 
         return inversions;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {6, 5, 12, 10, 9, 1};
-        new MergeSort().mergeSort(nums, 0, nums.length - 1);
-        System.out.println(Arrays.toString(nums));
     }
 }

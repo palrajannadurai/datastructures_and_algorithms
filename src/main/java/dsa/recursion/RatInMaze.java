@@ -7,36 +7,22 @@ import java.util.List;
 
 public class RatInMaze {
 
-    static class Direction {
-        private final int row;
-        private final int col;
-        private final char direction;
-
-        public Direction(int row, int col, char direction) {
-            this.row = row;
-            this.col = col;
-            this.direction = direction;
-        }
-
-        public int getRow() {
-            return row;
-        }
-
-        public int getCol() {
-            return col;
-        }
-
-        public char getDirection() {
-            return direction;
-        }
-    }
-
     private static final List<Direction> DIRECTION_LIST = Arrays.asList(
             new Direction(1, 0, 'D'),
             new Direction(-1, 0, 'U'),
             new Direction(0, -1, 'L'),
             new Direction(0, 1, 'R')
     );
+
+    public static void main(String[] args) {
+        int[][] maze = {
+                {1, 0, 0, 0},
+                {1, 1, 0, 1},
+                {1, 1, 0, 0},
+                {0, 1, 1, 1}
+        };
+        System.out.println(new RatInMaze().ratInMaze(maze));
+    }
 
     public List<String> ratInMaze(int[][] maze) {
         final int n = maze.length;
@@ -79,13 +65,27 @@ public class RatInMaze {
         return row >= 0 && row < n && col >= 0 && col < n && !visited[row][col] && maze[row][col] == 1;
     }
 
-    public static void main(String[] args) {
-        int[][] maze = {
-                {1, 0, 0, 0},
-                {1, 1, 0, 1},
-                {1, 1, 0, 0},
-                {0, 1, 1, 1}
-        };
-        System.out.println(new RatInMaze().ratInMaze(maze));
+    static class Direction {
+        private final int row;
+        private final int col;
+        private final char direction;
+
+        public Direction(int row, int col, char direction) {
+            this.row = row;
+            this.col = col;
+            this.direction = direction;
+        }
+
+        public int getRow() {
+            return row;
+        }
+
+        public int getCol() {
+            return col;
+        }
+
+        public char getDirection() {
+            return direction;
+        }
     }
 }

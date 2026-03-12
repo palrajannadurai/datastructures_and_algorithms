@@ -12,7 +12,8 @@ public class PolynomialTriangle {
         for (int i = 1; i < numOfRows; i++) {
             List<Integer> integers = new ArrayList<>(i + 1);
             for (int j = 0; j <= i; j++) {
-                if (j == 0 || j == i) { /* Beginning or ending of the array */
+                if (j == 0 || j == i) {
+                    /* Beginning or ending of the array */
                     integers.add(1);
                 } else {
                     integers.add(triangle.get(i - 1).get(j - 1) + triangle.get(i - 1).get(j));
@@ -24,7 +25,6 @@ public class PolynomialTriangle {
     }
 
     public static void main(String[] args) {
-        System.out.println(generate(5).toString());
+        System.out.println(generate(5));
     }
-
 }

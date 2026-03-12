@@ -5,6 +5,11 @@ import java.util.Arrays;
 import java.util.Deque;
 
 public class AsteroidCollision {
+    public static void main(String[] args) {
+        int[] asteroids = {5, -10, -5};
+        System.out.println(Arrays.toString(new AsteroidCollision().asteroidCollision(asteroids)));
+    }
+
     public int[] asteroidCollision(int[] asteroids) {
         Deque<Integer> stack = new ArrayDeque<>();
         for (int a : asteroids) {
@@ -28,10 +33,5 @@ public class AsteroidCollision {
             result[index++] = a;
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        int[] asteroids = {5, -10, -5};
-        System.out.println(Arrays.toString(new AsteroidCollision().asteroidCollision(asteroids)));
     }
 }

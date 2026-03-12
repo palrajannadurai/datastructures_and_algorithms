@@ -1,6 +1,5 @@
 package dsa.weekly_contest;
 
-
 // https://leetcode.com/problems/check-digitorial-permutation/description/
 
 public class CheckDigitorialPermutation {

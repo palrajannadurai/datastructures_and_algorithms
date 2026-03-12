@@ -16,9 +16,10 @@ public class DetectCycle {
         }
         return false;
     }
+
     /* Floyd warshall cycle detection algorithm */
     public static boolean hasCycleV1(ListNode head) {
-        if(head == null) {
+        if (head == null) {
             return false;
         }
         ListNode slow = head;
@@ -41,7 +42,7 @@ public class DetectCycle {
         node1.next = node2;
         node2.next = node3;
         node3.next = node2;
-//        node3.next = node4;
+        //        node3.next = node4;
         System.out.println(hasCycle(node1));
     }
 }

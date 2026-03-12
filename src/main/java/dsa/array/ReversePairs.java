@@ -8,9 +8,15 @@ package dsa.array;
  * */
 
 public class ReversePairs {
+    public static void main(String[] args) {
+        ReversePairs reversePairs = new ReversePairs();
+        int[] nums = {2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647};
+        System.out.println(reversePairs.reversePairs(nums));
+    }
+
     public int reversePairs(int[] nums) {
         int noOfPairs = 0;
-        int n  = nums.length;
+        int n = nums.length;
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
                 if (nums[i] > 2 * nums[j]) {
@@ -18,12 +24,6 @@ public class ReversePairs {
                 }
             }
         }
-        return  noOfPairs;
-    }
-
-    public static void main(String[] args) {
-        ReversePairs reversePairs = new ReversePairs();
-        int[] nums = {2147483647,2147483647,2147483647,2147483647,2147483647,2147483647};
-        System.out.println(reversePairs.reversePairs(nums));
+        return noOfPairs;
     }
 }

@@ -8,7 +8,7 @@ public class CopyLinkedListRandomPointer {
         if (head == null) return head;
         Map<Node, Node> map = new HashMap<>();
         Node curr = head;
-        while(curr != null) {
+        while (curr != null) {
             map.put(curr, new Node(curr.data));
             curr = curr.next;
         }

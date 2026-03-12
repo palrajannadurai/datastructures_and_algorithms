@@ -2,9 +2,16 @@ package dsa.recursion;
 
 public class MColoring {
 
+    public static void main(String[] args) {
+        int V = 4;
+        int m = 3;
+        int[][] edges = {{0, 1}, {1, 3}, {2, 3}, {3, 0}, {0, 2}};
+        System.out.println(new MColoring().graphColoring(V, edges, m));
+    }
+
     private boolean isSafe(int node, int col, boolean[][] graph, int[] color) {
         for (int i = 0; i < graph.length; i++) {
-            if (graph[node][i] && color[i] == col){
+            if (graph[node][i] && color[i] == col) {
                 return false;
             }
         }
@@ -30,17 +37,10 @@ public class MColoring {
     boolean graphColoring(int v, int[][] edges, int m) {
         int[] color = new int[v];
         boolean[][] graph = new boolean[v][v];
-        for (int[] edge: edges) {
+        for (int[] edge : edges) {
             graph[edge[0]][edge[1]] = true;
             graph[edge[1]][edge[0]] = true;
         }
         return solve(0, m, color, graph);
-    }
-
-    public static void main(String[] args) {
-        int V = 4;
-        int m = 3;
-        int[][] edges = {{0, 1}, {1, 3}, {2, 3}, {3, 0}, {0, 2}};
-        System.out.println(new MColoring().graphColoring(V, edges,m));
     }
 }

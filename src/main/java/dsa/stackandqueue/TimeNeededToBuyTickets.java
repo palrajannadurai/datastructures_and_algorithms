@@ -1,6 +1,12 @@
 package dsa.stackandqueue;
 
 public class TimeNeededToBuyTickets {
+    public static void main(String[] args) {
+        int[] tickets = {2, 3, 2};
+        int k = 2;
+        System.out.println(new TimeNeededToBuyTickets().timeRequiredToBuy(tickets, k));
+    }
+
     public int timeRequiredToBuy(int[] tickets, int k) {
         final int n = tickets.length;
         int time = 0;
@@ -12,11 +18,5 @@ public class TimeNeededToBuyTickets {
             }
         }
         return time;
-    }
-
-    public static void main(String[] args) {
-        int[] tickets = {2, 3, 2};
-        int k = 2;
-        System.out.println(new TimeNeededToBuyTickets().timeRequiredToBuy(tickets, k));
     }
 }

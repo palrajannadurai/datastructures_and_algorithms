@@ -1,6 +1,11 @@
 package dsa.dp;
 
 public class HouseRobber {
+    public static void main(String[] args) {
+        int[] nums = {2, 7, 9, 3, 1};
+        System.out.println(new HouseRobber().rob(nums));
+    }
+
     public int rob(int[] nums) {
         final int n = nums.length;
         int twoHouseBack = nums[0];
@@ -11,10 +16,5 @@ public class HouseRobber {
             oneHouseBack = current;
         }
         return Math.max(oneHouseBack, twoHouseBack);
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {2, 7, 9, 3, 1};
-        System.out.println(new HouseRobber().rob(nums));
     }
 }

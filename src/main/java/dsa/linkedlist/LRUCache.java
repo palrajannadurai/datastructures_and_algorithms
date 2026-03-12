@@ -3,20 +3,7 @@ package dsa.linkedlist;
 import java.util.HashMap;
 import java.util.Map;
 
-
 class LRUCache {
-
-    private static class Node {
-        private final int key;
-        private final int value;
-        private Node next;
-        private Node prev;
-
-        public Node(int key, int value) {
-            this.key = key;
-            this.value = value;
-        }
-    }
 
     private final int capacity;
     private final Map<Integer, Node> cache = new HashMap<>();
@@ -27,6 +14,15 @@ class LRUCache {
         this.capacity = capacity;
         head.next = tail;
         tail.prev = head;
+    }
+
+    public static void main(String[] args) throws IllegalAccessException {
+        LRUCache lru = new LRUCache(2);
+        lru.put(1, 1);
+        lru.put(2, 2);
+        System.out.println(lru.cache);
+        lru.put(3, 3);
+        System.out.println(lru.cache);
     }
 
     public int get(int key) {
@@ -74,13 +70,16 @@ class LRUCache {
         oldNext.prev = newNode;
     }
 
-    public static void main(String[] args) throws IllegalAccessException {
-        LRUCache lru = new LRUCache(2);
-        lru.put(1, 1);
-        lru.put(2, 2);
-        System.out.println(lru.cache);
-        lru.put(3, 3);
-        System.out.println(lru.cache);
+    private static class Node {
+        private final int key;
+        private final int value;
+        private Node next;
+        private Node prev;
+
+        public Node(int key, int value) {
+            this.key = key;
+            this.value = value;
+        }
     }
 
 }

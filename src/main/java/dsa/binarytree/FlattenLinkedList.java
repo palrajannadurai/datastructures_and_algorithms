@@ -2,6 +2,7 @@ package dsa.binarytree;
 
 public class FlattenLinkedList {
     private TreeNode lastVisitedNode = null;
+
     public void flatten(TreeNode root) {
         if (root == null) {
             return;

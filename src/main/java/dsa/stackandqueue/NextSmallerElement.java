@@ -40,7 +40,6 @@ public class NextSmallerElement {
         return result;
     }
 
-
     public static void main(String[] args) {
         int[] arr = {4, 8, 5, 2, 25};
         System.out.println(Arrays.toString(nextSmallerElement(arr)));

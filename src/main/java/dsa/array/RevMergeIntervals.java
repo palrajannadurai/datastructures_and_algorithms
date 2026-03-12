@@ -42,11 +42,10 @@ public class RevMergeIntervals {
     }
 
     public static void main(String[] args) {
-        int[][] intervals = {{1,3},{2,6},{8,10},{15,18}};
+        int[][] intervals = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
         int[][] result = merge(intervals);
         for (int[] i : result) {
             System.out.println(Arrays.toString(i));
         }
     }
-
 }

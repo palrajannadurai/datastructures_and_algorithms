@@ -2,6 +2,12 @@ package dsa.slidingwindow.minwindow;
 
 public class MinSizeSubArraySum {
 
+    public static void main(String[] args) {
+        int target = 7;
+        int[] nums = {2, 3, 1, 2, 4, 3};
+        System.out.println(new MinSizeSubArraySum().minSubArrayLen(target, nums));
+    }
+
     public int minSubArrayLen(int target, int[] nums) {
         int left = 0, minLen = Integer.MAX_VALUE;
         long sum = 0;
@@ -14,11 +20,5 @@ public class MinSizeSubArraySum {
             }
         }
         return minLen;
-    }
-
-    public static void main(String[] args) {
-        int target = 7;
-        int[] nums = {2, 3, 1, 2, 4, 3};
-        System.out.println(new MinSizeSubArraySum().minSubArrayLen(target, nums));
     }
 }

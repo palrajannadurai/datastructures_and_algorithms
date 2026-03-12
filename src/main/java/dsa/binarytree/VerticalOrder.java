@@ -3,16 +3,15 @@ package dsa.binarytree;
 import java.util.*;
 
 public class VerticalOrder {
-    static class Pair {
-        TreeNode data;
-        int level;
-        int hd;
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(3);
 
-        public Pair(TreeNode data, int level, int hd) {
-            this.data = data;
-            this.level = level;
-            this.hd = hd;
-        }
+        root.left = new TreeNode(9);
+        root.right = new TreeNode(20);
+
+        root.right.left = new TreeNode(15);
+        root.right.right = new TreeNode(7);
+        System.out.println(new VerticalOrder().verticalTraversal(root));
     }
 
     public List<List<Integer>> verticalTraversal(TreeNode root) {
@@ -41,10 +40,10 @@ public class VerticalOrder {
         }
 
         // Generating result
-        List<List<Integer>>  result = new ArrayList<>();
-        for (TreeMap<Integer, PriorityQueue<Integer>> colMap: map.values()) {
+        List<List<Integer>> result = new ArrayList<>();
+        for (TreeMap<Integer, PriorityQueue<Integer>> colMap : map.values()) {
             List<Integer> list = new ArrayList<>();
-            colMap.values().forEach( pq -> {
+            colMap.values().forEach(pq -> {
                 while (!pq.isEmpty()) list.add(pq.poll());
             });
             result.add(list);
@@ -52,14 +51,15 @@ public class VerticalOrder {
         return result;
     }
 
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(3);
+    static class Pair {
+        TreeNode data;
+        int level;
+        int hd;
 
-        root.left = new TreeNode(9);
-        root.right = new TreeNode(20);
-
-        root.right.left = new TreeNode(15);
-        root.right.right = new TreeNode(7);
-        System.out.println(new VerticalOrder().verticalTraversal(root));
+        public Pair(TreeNode data, int level, int hd) {
+            this.data = data;
+            this.level = level;
+            this.hd = hd;
+        }
     }
 }

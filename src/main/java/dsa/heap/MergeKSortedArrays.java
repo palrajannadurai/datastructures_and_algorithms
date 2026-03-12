@@ -20,7 +20,8 @@ public class MergeKSortedArrays {
             int arrayIndex = top[1];
             int elementIndex = top[2];
             if (elementIndex + 1 < arrays.get(arrayIndex).length) {
-                minHeap.offer(new int[]{arrays.get(arrayIndex)[elementIndex + 1], arrayIndex, elementIndex + 1});
+                minHeap.offer(
+                        new int[]{arrays.get(arrayIndex)[elementIndex + 1], arrayIndex, elementIndex + 1});
             }
         }
         return result;
@@ -34,6 +35,4 @@ public class MergeKSortedArrays {
 
         System.out.println(mergeKSortedArrays(arrays));
     }
-
-
 }

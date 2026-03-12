@@ -7,16 +7,14 @@ import java.util.Queue;
 
 public class DepthOfTree {
 
-    static class Pair {
-        int depth;
-        TreeNode node;
-
-        public Pair(int depth, TreeNode node) {
-            this.depth = depth;
-            this.node = node;
-        }
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(9);
+        root.right = new TreeNode(20);
+        root.right.left = new TreeNode(15);
+        root.right.right = new TreeNode(7);
+        System.out.println(new DepthOfTree().maxBFS(root));
     }
-
 
     public int maxBFS(TreeNode root) {
         // BFS/Level Order Traversal
@@ -41,8 +39,6 @@ public class DepthOfTree {
         }
         return depth;
     }
-
-
 
 
     public int maxDFS(TreeNode root) {
@@ -70,13 +66,14 @@ public class DepthOfTree {
         return maxDepth;
     }
 
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(3);
-        root.left = new TreeNode(9);
-        root.right = new TreeNode(20);
-        root.right.left = new TreeNode(15);
-        root.right.right = new TreeNode(7);
-        System.out.println(new DepthOfTree().maxBFS(root));
+    static class Pair {
+        int depth;
+        TreeNode node;
+
+        public Pair(int depth, TreeNode node) {
+            this.depth = depth;
+            this.node = node;
+        }
     }
 }
 

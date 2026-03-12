@@ -4,8 +4,8 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 class MedianFinder {
-    private Queue<Integer> maxHeap;
-    private Queue<Integer> minHeap;
+    private final Queue<Integer> maxHeap;
+    private final Queue<Integer> minHeap;
 
     public MedianFinder() {
         maxHeap = new PriorityQueue<>((a, b) -> b - a);

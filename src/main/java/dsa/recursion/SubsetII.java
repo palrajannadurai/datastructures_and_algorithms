@@ -7,14 +7,17 @@ import java.util.List;
 public class SubsetII {
 
     static void backtrack(int[] nums, List<List<Integer>> result, List<Integer> current, int start) {
-        result.add(new ArrayList<>(current)); // Every state of my current list — empty or partial — is a valid subset
+        result.add(
+                new ArrayList<>(
+                        current)); // Every state of my current list — empty or partial — is a valid subset
         for (int i = start; i < nums.length; i++) {
-            if (i > start && nums[i] == nums[i -1]) { // we will make sure the first occurrence is always used
+            if (i > start
+                    && nums[i] == nums[i - 1]) { // we will make sure the first occurrence is always used
                 continue;
             }
             current.add(nums[i]);
             backtrack(nums, result, current, i + 1);
-            current.remove(current.size() - 1);  // Remove from the current list
+            current.remove(current.size() - 1); // Remove from the current list
         }
     }
 
@@ -23,7 +26,6 @@ public class SubsetII {
         Arrays.sort(nums);
         backtrack(nums, result, new ArrayList<>(), 0);
         return result;
-
     }
 
     // if we want to remove duplicates subset

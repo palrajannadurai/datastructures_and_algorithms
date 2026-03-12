@@ -1,6 +1,5 @@
 package dsa.recursion;
 
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -31,7 +30,6 @@ class Meetings {
     }
 }
 
-
 public class NMeetingInOneRoom {
 
     public static int maxMeetings(int[] start, int[] end) {
@@ -45,7 +43,7 @@ public class NMeetingInOneRoom {
         meetings.sort(Comparator.comparingInt(Meetings::getEnd));
         int noOfMeetings = 1;
         int lastEndTime = meetings.get(0).getEnd();
-        for (int i = 1; i < meetings.size() ; i++) {
+        for (int i = 1; i < meetings.size(); i++) {
             if (meetings.get(i).getStart() > lastEndTime) {
                 noOfMeetings++;
                 lastEndTime = meetings.get(i).getEnd();

@@ -1,6 +1,11 @@
 package dsa.string;
 
 public class RemoveAllOccurrenceOfString {
+    public static void main(String[] args) {
+        String s = "daabcbaabcbc", part = "abc";
+        System.out.println(new RemoveAllOccurrenceOfString().removeOccurrences(s, part));
+    }
+
     public String removeOccurrences(String s, String part) {
         StringBuilder sb = new StringBuilder(s);
         while (true) {
@@ -9,10 +14,5 @@ public class RemoveAllOccurrenceOfString {
             sb.delete(idx, idx + part.length());
         }
         return sb.toString();
-    }
-
-    public static void main(String[] args) {
-        String s = "daabcbaabcbc", part = "abc";
-        System.out.println(new RemoveAllOccurrenceOfString().removeOccurrences(s, part));
     }
 }

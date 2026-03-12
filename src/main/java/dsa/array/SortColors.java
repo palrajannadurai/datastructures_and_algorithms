@@ -19,7 +19,6 @@ public class SortColors {
                 high--;
             }
         }
-
     }
 
     private static void swap(int[] nums, int n1, int n2) {
@@ -32,7 +31,7 @@ public class SortColors {
         int[] nums = {2, 0, 2, 1, 1, 0};
         sortColors(nums);
         System.out.println(Arrays.toString(nums));
-//        Output: [0,0,1,1,2,2]
+        //        Output: [0,0,1,1,2,2]
 
     }
 }

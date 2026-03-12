@@ -9,7 +9,7 @@ public class CoinChange {
         dp[0] = 0;
 
         for (int i = 1; i < amount; i++) {
-            for (int coin: coins) {
+            for (int coin : coins) {
                 if (coin <= i) {
                     dp[i] = Math.min(dp[i], dp[i - coin]);
                 }
@@ -20,7 +20,7 @@ public class CoinChange {
     }
 
     public static void main(String[] args) {
-        int[] coins = {1,2,5};
+        int[] coins = {1, 2, 5};
         int amount = 11;
         System.out.println(coinChange(coins, amount));
     }

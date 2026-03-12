@@ -6,6 +6,12 @@ public class WordSearch {
     private static final int XOR_MASK = 256;
     private static final int[][] DIRECTIONS = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
 
+    public static void main(String[] args) {
+        char[][] board = {{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
+        String word = "ABCCED";
+        System.out.println(new WordSearch().exist(board, word));
+    }
+
     public boolean exist(char[][] board, String word) {
         final int row = board.length;
         final int col = board[0].length;
@@ -48,7 +54,7 @@ public class WordSearch {
         }
         board[row][col] ^= XOR_MASK;
 
-        for(int[] direction: DIRECTIONS) {
+        for (int[] direction : DIRECTIONS) {
             if (dfs(board, word, row + direction[0], col + direction[1], index + 1)) {
                 board[row][col] ^= XOR_MASK;
                 return true;
@@ -56,12 +62,5 @@ public class WordSearch {
         }
         board[row][col] ^= XOR_MASK;
         return false;
-    }
-
-
-    public static void main(String[] args) {
-        char[][] board = {{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
-        String word = "ABCCED";
-        System.out.println( new WordSearch().exist(board, word));
     }
 }

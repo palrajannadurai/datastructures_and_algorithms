@@ -2,10 +2,6 @@ package dsa.binarytree;
 
 public class LCA {
 
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        return null;
-    }
-
     public static void main(String[] args) {
         TreeNode root = new TreeNode(3);
 
@@ -20,6 +16,9 @@ public class LCA {
 
         root.left.right.left = new TreeNode(7);
         root.left.right.right = new TreeNode(4);
+    }
 
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        return null;
     }
 }

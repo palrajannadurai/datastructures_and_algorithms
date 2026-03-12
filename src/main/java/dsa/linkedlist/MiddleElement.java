@@ -30,8 +30,6 @@ public class MiddleElement {
         return slow;
     }
 
-
-
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
         ListNode node2 = new ListNode(2);
@@ -44,5 +42,4 @@ public class MiddleElement {
         node4.next = node5;
         System.out.println(middleNodeV1(head));
     }
-
 }

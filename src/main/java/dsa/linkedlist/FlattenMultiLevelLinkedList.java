@@ -22,6 +22,7 @@ public class FlattenMultiLevelLinkedList {
 
         return head;
     }
+
     public static void main(String[] args) {
     }
 }

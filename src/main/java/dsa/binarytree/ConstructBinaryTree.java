@@ -7,6 +7,12 @@ public class ConstructBinaryTree {
     int preIndex = 0;
     Map<Integer, Integer> inOrderMap = new LinkedHashMap<>();
 
+    public static void main(String[] args) {
+        int[] preorder = {3, 9, 20, 15, 7};
+        int[] inorder = {9, 3, 15, 20, 7};
+        new ConstructBinaryTree().buildTree(preorder, inorder);
+    }
+
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         final int inOrderLength = inorder.length;
         for (int i = 0; i < inOrderLength; i++) {
@@ -26,11 +32,4 @@ public class ConstructBinaryTree {
         root.left = build(preorder, inStart, rootIndex - 1);
         return root;
     }
-
-    public static void main(String[] args) {
-        int[] preorder = {3, 9, 20, 15, 7};
-        int[] inorder = {9, 3, 15, 20, 7};
-        new ConstructBinaryTree().buildTree(preorder, inorder);
-    }
-
 }

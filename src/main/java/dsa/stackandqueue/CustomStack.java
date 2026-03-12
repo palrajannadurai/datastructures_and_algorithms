@@ -12,6 +12,14 @@ public class CustomStack {
         items = new int[capacity];
     }
 
+    public static void main(String[] args) {
+        CustomStack stack = new CustomStack(2);
+        stack.push(10);
+        stack.push(20);
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+    }
+
     private boolean isFull() {
         return top == capacity - 1;
     }
@@ -48,13 +56,5 @@ public class CustomStack {
 
     public int getMin() {
         return min;
-    }
-
-    public static void main(String[] args) {
-        CustomStack stack = new CustomStack(2);
-        stack.push(10);
-        stack.push(20);
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
     }
 }

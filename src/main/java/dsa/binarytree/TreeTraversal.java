@@ -82,18 +82,6 @@ public class TreeTraversal {
         return result;
     }
 
-    public List<Integer> postorderTraversal(TreeNode root) {
-        if (root == null) {
-            return new ArrayList<>();
-        }
-        postorderTraversal(root.left);
-        postorderTraversal(root.right);
-        result.add(root.val);
-        return result;
-
-    }
-
-
     public static void main(String[] args) {
         TreeNode n4 = new TreeNode(4, null, null);
         TreeNode n5 = new TreeNode(5, null, null);
@@ -105,6 +93,17 @@ public class TreeTraversal {
         TreeNode root = new TreeNode(1, n2, n3);
 
         preorderTraversal(root);
+
+    }
+
+    public List<Integer> postorderTraversal(TreeNode root) {
+        if (root == null) {
+            return new ArrayList<>();
+        }
+        postorderTraversal(root.left);
+        postorderTraversal(root.right);
+        result.add(root.val);
+        return result;
 
     }
 }

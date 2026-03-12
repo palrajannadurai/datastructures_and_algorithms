@@ -1,6 +1,9 @@
 package dsa.slidingwindow.atmostk;
 
 public class BinarySubarraysWithSum {
+    public static void main(String[] args) {
+    }
+
     public int numSubarraysWithSum(int[] nums, int goal) {
         return atMostKSum(nums, goal) - atMostKSum(nums, goal - 1);
     }
@@ -20,9 +23,5 @@ public class BinarySubarraysWithSum {
             count += right - left + 1;
         }
         return count;
-    }
-
-    public static void main(String[] args) {
-
     }
 }

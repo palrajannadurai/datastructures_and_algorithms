@@ -2,6 +2,11 @@ package dsa.dp;
 
 public class EditDistance {
 
+    public static void main(String[] args) {
+        String word1 = "horse", word2 = "ros";
+        System.out.println(new EditDistance().minDistance(word1, word2));
+    }
+
     public int minDistance(String word1, String word2) {
         int m = word1.length();
         int n = word2.length();
@@ -25,10 +30,5 @@ public class EditDistance {
             }
         }
         return dp[m][n];
-    }
-
-    public static void main(String[] args) {
-        String word1 = "horse", word2 = "ros";
-        System.out.println(new EditDistance().minDistance(word1, word2));
     }
 }

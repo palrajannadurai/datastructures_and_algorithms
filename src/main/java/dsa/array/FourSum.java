@@ -70,12 +70,13 @@ public class FourSum {
                     if (sum == target) {
 
                         // Valid quadruplet found
-                        result.add(Arrays.asList(
-                                nums[i],     // fixed by i
-                                nums[j],     // fixed by j
-                                nums[start], // current start pointer
-                                nums[end]    // current end pointer
-                        ));
+                        result.add(
+                                Arrays.asList(
+                                        nums[i], // fixed by i
+                                        nums[j], // fixed by j
+                                        nums[start], // current start pointer
+                                        nums[end] // current end pointer
+                                ));
 
                         // Move both pointers to find next possible pair
                         start++;
@@ -104,7 +105,6 @@ public class FourSum {
         // Return all unique quadruplets
         return result;
     }
-
 
     public static void main(String[] args) {
         int[] nums = {1, 0, -1, 0, -2, 2};

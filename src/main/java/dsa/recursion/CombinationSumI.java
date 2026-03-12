@@ -4,7 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CombinationSumI {
-    private void backtrack(int[] candidates, int start, int target, List<Integer> current, List<List<Integer>> result) {
+    public static void main(String[] args) {
+        int[] candidates = {2, 3, 6, 7};
+        int target = 7;
+        System.out.println(new CombinationSumI().combinationSum(candidates, target));
+    }
+
+    private void backtrack(
+            int[] candidates, int start, int target, List<Integer> current, List<List<Integer>> result) {
         if (target < 0) {
             return;
         }
@@ -23,11 +30,5 @@ public class CombinationSumI {
         List<List<Integer>> result = new ArrayList<>();
         backtrack(candidates, 0, target, new ArrayList<>(), result);
         return result;
-    }
-
-    public static void main(String[] args) {
-        int[] candidates = {2, 3, 6, 7};
-        int target = 7;
-        System.out.println(new CombinationSumI().combinationSum(candidates, target));
     }
 }

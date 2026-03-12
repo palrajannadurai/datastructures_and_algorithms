@@ -17,6 +17,11 @@ public class MajorityElement {
         Optimized: O(n), O(1)
     */
 
+    public static void main(String[] args) {
+        int[] s = {3, 2, 2, 3, 3, 3, 3, 2, 3};
+        System.out.println(new MajorityElement().majorityElement(s));
+    }
+
     // Brute
     public int majorityElementBF(int[] nums) {
         for (int num : nums) {
@@ -35,11 +40,5 @@ public class MajorityElement {
             count += (num == candidate) ? 1 : -1;
         }
         return candidate;
-    }
-
-
-    public static void main(String[] args) {
-        int[] s = {3, 2, 2, 3, 3, 3, 3, 2, 3};
-        System.out.println(new MajorityElement().majorityElement(s));
     }
 }

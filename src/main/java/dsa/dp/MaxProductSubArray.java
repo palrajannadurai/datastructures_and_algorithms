@@ -1,6 +1,11 @@
 package dsa.dp;
 
 public class MaxProductSubArray {
+    public static void main(String[] args) {
+        int[] nums = {2, 3, -2, 4};
+        System.out.println(new MaxProductSubArray().maxProduct(nums));
+    }
+
     public int maxProductBF(int[] nums) {
         int n = nums.length;
         int left = 0;
@@ -28,10 +33,5 @@ public class MaxProductSubArray {
             result = Math.max(result, maxEndingHere);
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {2, 3, -2, 4};
-        System.out.println(new MaxProductSubArray().maxProduct(nums));
     }
 }

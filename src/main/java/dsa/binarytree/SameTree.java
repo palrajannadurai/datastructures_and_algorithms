@@ -4,6 +4,9 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 public class SameTree {
+    public static void main(String[] args) {
+    }
+
     public boolean isSameTree(TreeNode p, TreeNode q) {
         if (p == null && q == null) {
             return true;
@@ -40,9 +43,5 @@ public class SameTree {
         }
 
         return true;
-    }
-
-    public static void main(String[] args) {
-
     }
 }

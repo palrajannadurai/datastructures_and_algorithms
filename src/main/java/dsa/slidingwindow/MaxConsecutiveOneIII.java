@@ -1,6 +1,12 @@
 package dsa.slidingwindow;
 
 public class MaxConsecutiveOneIII {
+    public static void main(String[] args) {
+        int[] nums = {1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0};
+        int k = 2;
+        System.out.println(new MaxConsecutiveOneIII().longestOnes(nums, k));
+    }
+
     public int longestOnes(int[] nums, int k) {
         final int n = nums.length;
         int left = 0, maxLen = 0, onesCount = 0;
@@ -17,11 +23,5 @@ public class MaxConsecutiveOneIII {
             maxLen = Math.max(maxLen, right - left + 1);
         }
         return maxLen;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0};
-        int k = 2;
-        System.out.println(new MaxConsecutiveOneIII().longestOnes(nums, k));
     }
 }

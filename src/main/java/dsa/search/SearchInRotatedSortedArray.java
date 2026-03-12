@@ -1,6 +1,13 @@
 package dsa.search;
 
 public class SearchInRotatedSortedArray {
+    public static void main(String[] args) {
+        int[] nums = {4, 5, 6, 7, 0, 1, 2};
+//        int[] nums = {1};
+        int target = 0;
+        System.out.println(new SearchInRotatedSortedArray().search(nums, target));
+    }
+
     public int search(int[] nums, int target) {
         int low = 0, high = nums.length - 1;
         while (low <= high) {
@@ -29,12 +36,5 @@ public class SearchInRotatedSortedArray {
         for (int idx = start; idx <= end; idx++) {
             System.out.print(nums[idx] + " ");
         }
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {4, 5, 6, 7, 0, 1, 2};
-//        int[] nums = {1};
-        int target = 0;
-        System.out.println(new SearchInRotatedSortedArray().search(nums, target));
     }
 }

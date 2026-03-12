@@ -24,8 +24,8 @@ public class SetMatrixZeroes {
                 break;
             }
         }
-//        m = 3 - 1= 2
-//        n = 4 - 1 = 3
+        //        m = 3 - 1= 2
+        //        n = 4 - 1 = 3
         for (int i = 1; i < m; i++) {
             for (int j = 1; j < n; j++) {
                 if (matrix[i][j] == 0) {
@@ -62,21 +62,20 @@ public class SetMatrixZeroes {
                 {3, 4, 5, 2},
                 {1, 3, 1, 0}
         };
-/*        int[][] matrix = {
-                {1, 1, 1},
-                {1, 0, 1},
-                {1, 1, 1}
-        };*/
-        for (int[] nums: matrix) {
+    /*        int[][] matrix = {
+            {1, 1, 1},
+            {1, 0, 1},
+            {1, 1, 1}
+    };*/
+        for (int[] nums : matrix) {
             System.out.println(Arrays.toString(nums));
         }
         System.out.println("*********************");
         setZeroes(matrix);
-        for (int[] nums: matrix) {
+        for (int[] nums : matrix) {
             System.out.println(Arrays.toString(nums));
         }
 
-//        Integer.valueOf()
+        //        Integer.valueOf()
     }
 }
-

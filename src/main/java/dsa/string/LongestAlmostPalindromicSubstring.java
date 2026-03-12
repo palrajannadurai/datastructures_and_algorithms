@@ -4,6 +4,11 @@ public class LongestAlmostPalindromicSubstring {
 
     Boolean[][] memo;
 
+    public static void main(String[] args) {
+        String s = "abca";
+        System.out.println(new LongestAlmostPalindromicSubstring().almostPalindromic(s));
+    }
+
     public int almostPalindromic(String s) {
         int maxLen = 0;
         final int n = s.length();
@@ -25,7 +30,7 @@ public class LongestAlmostPalindromicSubstring {
             if (s.charAt(start) == s.charAt(end)) {
                 start++;
                 end--;
-            } else  {
+            } else {
                 memo[start][end] = isPalindrome(s, start + 1, end) || isPalindrome(s, start, end - 1);
                 return memo[start][end];
             }
@@ -43,13 +48,5 @@ public class LongestAlmostPalindromicSubstring {
             end--;
         }
         return true;
-    }
-
-
-
-
-    public static void main(String[] args) {
-        String s = "abca";
-        System.out.println(new LongestAlmostPalindromicSubstring().almostPalindromic(s));
     }
 }
