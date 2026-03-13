@@ -17,7 +17,7 @@ public class MedianOfTwoSortedArrays {
             int maxLeftB = cutB == 0 ? Integer.MIN_VALUE : nums2[cutB - 1];
             int minRightB = cutB == n ? Integer.MAX_VALUE : nums2[cutB];
 
-            if (maxLeftA <= minRightA && maxLeftB <= minRightB) {
+            if (maxLeftA <= minRightB && maxLeftB <= minRightA) {
                 if ((m + n) % 2 == 0) {
                     return (Math.max(maxLeftA, maxLeftB) + Math.min(minRightA, minRightB)) / 2.0;
                 } else {
