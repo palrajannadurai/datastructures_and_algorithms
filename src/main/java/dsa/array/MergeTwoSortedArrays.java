@@ -1,15 +1,23 @@
-package com.dsa.array;
+package dsa.array;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 public class MergeTwoSortedArrays {
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
-        if (n == 0) {
-            return;
+        int i = m - 1;
+        int j = n - 1;
+        int k = m + n - 1;
+        while (i >= 0 && j >= 0) {
+            if (nums1[i] < nums2[j]) {
+                nums1[k--] = nums2[j--];
+            } else {
+                nums1[k--] = nums1[i--];
+            }
         }
-        IntStream.range(0, nums2.length).forEach(i -> nums1[m + i] = nums2[i]);
-        Arrays.sort(nums1);
+
+        while (j >= 0) {
+            nums1[k--] = nums2[j--];
+        }
     }
 
     public static void main(String[] args) {
